@@ -10,4 +10,3 @@ Describe the public surface changed and why the change is needed.
 - [ ] `python tools/check_repository.py` passes.
 - [ ] Compatibility is preserved or a new format version is proposed.
 - [ ] No restricted data, binary, credential, or unrelated change is included.
-- [ ] `CHANGELOG.md` is updated for user-visible behavior.

@@ -8,8 +8,8 @@ Version domains
 pPreProc maintains separate versions for:
 
 * the Windows application distributed through GitHub Releases;
-* the Python and C++ SDKs, recorded in ``SDK_VERSION``; and
-* the PFB/PFC contract, recorded in ``FORMAT_VERSION``.
+* the Python and C++ SDKs, declared by their package and build metadata; and
+* the PFB/PFC contract, represented by its versioned specification directory.
 
 Compatibility between these surfaces is published in the compatibility
 matrix. Equal version numbers do not imply that the surfaces share a release

@@ -92,7 +92,6 @@ $citation = $citation -replace '(?m)^date-released:.*$', "date-released: $([Date
 $citation = $citation -replace '(?m)^license:.*\r?\n', ''
 Set-Content -LiteralPath (Join-Path $stage 'CITATION.cff') -Value $citation -Encoding utf8
 Copy-Item -LiteralPath (Join-Path $repository 'LICENSE') -Destination (Join-Path $stage 'PUBLIC_COMPONENTS_LICENSE.txt')
-Copy-Item -LiteralPath (Join-Path $repository 'NOTICE') -Destination $stage
 Copy-Item -LiteralPath $applicationLicense -Destination $stage
 Copy-Item -LiteralPath $thirdPartyNotices -Destination $stage
 Copy-Item -LiteralPath $thirdPartyLicenses -Destination (Join-Path $stage 'third-party-licenses') -Recurse

@@ -5,11 +5,11 @@ Compatibility and validation
 Version matrix
 ==============
 
-=======================  ==========  =======  =======  ========================
+=======================  ==========  =======  =======  =========================
 Application              Python SDK  C++ SDK  PFB/PFC  Status
-=======================  ==========  =======  =======  ========================
-No public release yet    1.0.x       1.0.x    v1       Current public interface
-=======================  ==========  =======  =======  ========================
+=======================  ==========  =======  =======  =========================
+2.5.2-rc.1               1.0.x       1.0.x    v1       Windows release candidate
+=======================  ==========  =======  =======  =========================
 
 SDK 1.x reads indexed files satisfying the v1 specification. Readers accept
 additional PFC columns, while existing v1 field meanings and units remain

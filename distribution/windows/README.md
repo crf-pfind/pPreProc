@@ -15,12 +15,13 @@ A public archive must include:
 - `ppreproc.cmd` and `ppreproc.ps1`;
 - the selected application runtime;
 - an application `VERSION` file;
-- approved application terms, the public-component license, `NOTICE`, and all
-  applicable third-party notices;
+- application terms, the public-component license, and third-party notices;
 - `runtime-manifest.json`;
 - `runtime-provenance.json` and `RUNTIME_INVENTORY.json`; and
 - `SHA256SUMS.txt`.
 
 The approved application terms, component inventory, and third-party notices
-are maintained in this directory. Release maintainers must build from the
-recorded sources and follow `.github/RELEASING.md`.
+are maintained in this directory. When a runtime changes, update
+`runtime-manifest.json`, `third-party/third-party-components.json`, and the
+affected notices or license texts before rebuilding. Release maintainers must
+follow `.github/RELEASING.md`.

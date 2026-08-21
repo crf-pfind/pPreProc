@@ -1,39 +1,41 @@
-name: Application bug
-description: Report a reproducible problem in the pPreProc Windows application
-title: "[Application]: "
+name: Bug report
+description: Report a reproducible application, SDK, CLI, or format problem
+title: "[Bug]: "
 labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: Do not upload restricted vendor data, binaries, credentials, or confidential logs.
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options:
+        - Windows application
+        - Python SDK or CLI
+        - C++ SDK
+        - PFB/PFC format
+    validations:
+      required: true
   - type: input
     id: version
     attributes:
-      label: Application version
-      placeholder: 1.0.0
+      label: Version
+      description: Application or SDK version and PFB/PFC format version
     validations:
       required: true
   - type: input
     id: platform
     attributes:
-      label: Platform
-      description: Windows edition, version, and architecture
-    validations:
-      required: true
-  - type: input
-    id: installation
-    attributes:
-      label: Installation method
-      description: GitHub Release asset name, pFind bundle, or another method
+      label: Environment
+      description: Operating system, architecture, and Python or compiler version where applicable
     validations:
       required: true
   - type: textarea
     id: dataset
     attributes:
       label: Input context
-      description: Vendor or format, instrument, acquisition mode, and approximate dataset size
-    validations:
-      required: true
+      description: Format, instrument, acquisition mode, and approximate dataset size where relevant
   - type: textarea
     id: reproduction
     attributes:

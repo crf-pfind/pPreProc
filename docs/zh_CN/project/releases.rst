@@ -8,8 +8,8 @@
 pPreProc 分别维护：
 
 * 通过 GitHub Releases 发布的 Windows 应用程序版本；
-* 记录在 ``SDK_VERSION`` 中的 Python/C++ SDK 版本；
-* 记录在 ``FORMAT_VERSION`` 中的 PFB/PFC 格式版本。
+* 由软件包和构建元数据声明的 Python/C++ SDK 版本；
+* 由版本化规范目录表示的 PFB/PFC 格式版本。
 
 各层面的兼容关系在兼容性矩阵中说明。版本号相同不表示它们共用一个发布周期。
 

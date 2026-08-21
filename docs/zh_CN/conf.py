@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import sys
+from importlib.metadata import version as package_version
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -9,7 +10,7 @@ sys.path.insert(0, str(ROOT / "sdk" / "python" / "src"))
 project = "pPreProc"
 author = "pPreProc developers"
 copyright = "2026, pPreProc developers"
-release = (ROOT / "SDK_VERSION").read_text(encoding="utf-8").strip()
+release = package_version("ppreproc-pfb")
 version = release
 language = "zh_CN"
 

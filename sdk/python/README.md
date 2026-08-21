@@ -8,4 +8,5 @@ API consists of `PFBReader`, `PFBRecord`, and `PFBFormatError`; installation
 also provides the `ppreproc-pfb` validation CLI.
 
 See the [Python SDK documentation](https://ppreproc.readthedocs.io/en/latest/reference/python-api.html)
-and `tests/` for supported behavior.
+and `tests/` for supported behavior. A minimal script is available in
+`examples/read_spectrum.py`.

@@ -8,12 +8,10 @@
 *.toml text eol=lf
 *.rst text eol=lf
 *.cff text eol=lf
-*.in text eol=lf
 *.hpp text eol=lf
 *.cpp text eol=lf
 *.txt text eol=lf
 *.pfc text eol=lf
 *.ps1 text eol=crlf
 *.cmd text eol=crlf
-NOTICE text eol=lf
 *.pfb binary

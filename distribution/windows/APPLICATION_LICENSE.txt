@@ -62,7 +62,7 @@ using the citation information supplied with the release.
 
 No update, maintenance, or support obligation is created by this agreement.
 Support, when available, is described at
-https://github.com/crf-pfind/pPreProc/blob/main/SUPPORT.md.
+https://github.com/crf-pfind/pPreProc#support-and-licensing.
 
 9. Disclaimer
 

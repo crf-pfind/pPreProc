@@ -30,7 +30,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: python -m pip install ruff==0.16.4
-      - run: ruff check sdk/python/src sdk/python/tests tools examples/python
+      - run: ruff check sdk/python/src sdk/python/tests sdk/python/examples tools
       - run: python tools/check_repository.py
 
   cpp:

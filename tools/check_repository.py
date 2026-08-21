@@ -16,23 +16,19 @@ SEMVER = re.compile(
 
 def _required_files() -> list[str]:
     return [
+        ".github/CODE_OF_CONDUCT.md",
+        ".github/CONTRIBUTING.md",
         ".github/RELEASING.md",
+        ".github/SECURITY.md",
         ".github/ISSUE_TEMPLATE/bug_report.yml",
         ".github/ISSUE_TEMPLATE/documentation.yml",
-        ".github/ISSUE_TEMPLATE/sdk_bug.yml",
+        ".gitattributes",
+        ".gitignore",
         ".readthedocs.yaml",
-        "CHANGELOG.md",
         "CITATION.cff",
-        "CODE_OF_CONDUCT.md",
-        "COMPATIBILITY.md",
-        "CONTRIBUTING.md",
-        "FORMAT_VERSION",
         "LICENSE",
-        "NOTICE",
         "README.md",
-        "SDK_VERSION",
-        "SECURITY.md",
-        "SUPPORT.md",
+        "pyproject.toml",
         "distribution/windows/README.md",
         "distribution/windows/PACKAGE_README.md",
         "distribution/windows/runtime-manifest.json",
@@ -44,6 +40,7 @@ def _required_files() -> list[str]:
         "interfaces/pfb-pfc/v1/specification.md",
         "sdk/cpp/CMakeLists.txt",
         "sdk/cpp/include/ppreproc/pfb_reader.hpp",
+        "sdk/python/examples/read_spectrum.py",
         "sdk/python/src/ppreproc_pfb/__init__.py",
         "sdk/python/tests/fixtures/minimal.pfb",
         "sdk/python/tests/fixtures/minimal.pfc",
@@ -65,15 +62,46 @@ def main() -> int:
         if not (ROOT / relative).is_file():
             errors.append(f"missing required file: {relative}")
 
-    sdk_version = (ROOT / "SDK_VERSION").read_text(encoding="utf-8").strip()
-    format_version = (ROOT / "FORMAT_VERSION").read_text(encoding="utf-8").strip()
+    allowed_root_files = {
+        ".gitattributes",
+        ".gitignore",
+        ".readthedocs.yaml",
+        "CITATION.cff",
+        "LICENSE",
+        "README.md",
+        "pyproject.toml",
+    }
+    root_files = {path.name for path in ROOT.iterdir() if path.is_file()}
+    for name in sorted(root_files - allowed_root_files):
+        errors.append(f"unexpected root file: {name}")
+
+    pyproject = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
+    project_section = re.search(
+        r"(?ms)^\[project\]\s*$\n(.*?)(?=^\[|\Z)", pyproject
+    )
+    version_match = (
+        re.search(r'(?m)^version\s*=\s*"([^"]+)"\s*$', project_section.group(1))
+        if project_section
+        else None
+    )
+    sdk_version = version_match.group(1) if version_match else ""
     if not SEMVER.fullmatch(sdk_version):
-        errors.append(f"invalid SDK_VERSION: {sdk_version!r}")
-    if not format_version.isdigit() or int(format_version) < 1:
-        errors.append(f"invalid FORMAT_VERSION: {format_version!r}")
+        errors.append(f"invalid project version: {sdk_version!r}")
+
+    format_root = ROOT / "interfaces/pfb-pfc"
+    format_versions = sorted(
+        int(path.name[1:])
+        for path in format_root.iterdir()
+        if path.is_dir() and re.fullmatch(r"v[1-9]\d*", path.name)
+    )
+    if not format_versions:
+        errors.append("no versioned PFB/PFC specification found")
+        format_version = 0
+    else:
+        format_version = format_versions[-1]
 
     synchronized = {
-        "pyproject.toml": (ROOT / "pyproject.toml").read_text(encoding="utf-8"),
+        "pyproject.toml": pyproject,
         "Python SDK": (
             ROOT / "sdk/python/src/ppreproc_pfb/__init__.py"
         ).read_text(encoding="utf-8"),
@@ -82,13 +110,13 @@ def main() -> int:
     }
     for name, content in synchronized.items():
         if sdk_version not in content:
-            errors.append(f"SDK_VERSION {sdk_version} is not synchronized in {name}")
+            errors.append(f"SDK version {sdk_version} is not synchronized in {name}")
 
     specification = (
-        ROOT / "interfaces/pfb-pfc/v1/specification.md"
+        ROOT / f"interfaces/pfb-pfc/v{format_version}/specification.md"
     ).read_text(encoding="utf-8")
     if f"Format version: {format_version}" not in specification:
-        errors.append("FORMAT_VERSION is not synchronized in the specification")
+        errors.append("format directory and specification version are not synchronized")
 
     english = _document_paths("en")
     chinese = _document_paths("zh_CN")

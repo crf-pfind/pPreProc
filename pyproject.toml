@@ -30,7 +30,7 @@ Homepage = "https://github.com/crf-pfind/pPreProc"
 Repository = "https://github.com/crf-pfind/pPreProc"
 Documentation = "https://ppreproc.readthedocs.io/en/latest/"
 Issues = "https://github.com/crf-pfind/pPreProc/issues"
-Changelog = "https://github.com/crf-pfind/pPreProc/blob/main/CHANGELOG.md"
+Releases = "https://github.com/crf-pfind/pPreProc/releases"
 
 [project.scripts]
 ppreproc-pfb = "ppreproc_pfb.cli:main"
