@@ -19,6 +19,10 @@ PROHIBITED_CHINESE_TERMS = {
     "前体": "母离子",
 }
 
+PROHIBITED_PUBLIC_DOC_TEXT = {
+    "中文术语约定": "maintainer terminology rules must not be published",
+}
+
 
 def _required_files() -> list[str]:
     return [
@@ -134,6 +138,9 @@ def main() -> int:
     for path in sorted((ROOT / "docs" / "zh_CN").rglob("*.rst")):
         content = path.read_text(encoding="utf-8")
         relative = path.relative_to(ROOT).as_posix()
+        for prohibited, reason in PROHIBITED_PUBLIC_DOC_TEXT.items():
+            if prohibited in content:
+                errors.append(f"{reason}: {relative}")
         for prohibited, preferred in PROHIBITED_CHINESE_TERMS.items():
             for line_number, line in enumerate(content.splitlines(), start=1):
                 if prohibited in line:

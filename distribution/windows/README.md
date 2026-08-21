@@ -7,8 +7,8 @@ stored in Git.
 The package builder reads `runtime-manifest.json`, copies only the listed
 runtime files from the project-approved pFind 3.2.3 runtime and the licensed
 Microsoft x64 Redistributable directory, adds the launchers and notices, and
-generates SHA-256 checksums. It deliberately excludes pFind search, reporting,
-and graphical applications.
+generates SHA-256 checksums. pFind search, reporting, and graphical applications
+are not included.
 
 A public archive must include:
 

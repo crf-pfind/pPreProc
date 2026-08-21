@@ -5,23 +5,24 @@
 Windows 应用程序
 ================
 
-可运行的 pPreProc 软件包通过 GitHub
-`Releases 页面 <https://github.com/crf-pfind/pPreProc/releases>`_ 发布。
-每个应用程序发布版应包含 Windows ZIP 软件包、校验和、发行说明，以及适用的
-许可证和第三方组件声明。
+打开 GitHub `Releases 页面 <https://github.com/crf-pfind/pPreProc/releases>`_，
+下载 ``pPreProc-<版本号>-windows-x64.zip`` 及对应的 ``.sha256`` 文件。
+GitHub 自动生成的 ``Source code`` 压缩包不是可运行的软件包。
 
-当前独立应用程序为 ``2.5.2-rc.1`` Windows x64 候选发布版。请下载名为
-``pPreProc-2.5.2-rc.1-windows-x64.zip`` 的附件；GitHub 自动生成的
-``Source code`` 压缩包不是应用程序软件包。请先使用对应的 ``.sha256`` 文件
-核验压缩包，
-解压后运行：
+在 PowerShell 中计算压缩包校验和，并与发布页提供的值比较：
+
+.. code-block:: powershell
+
+   (Get-FileHash .\pPreProc-<版本号>-windows-x64.zip -Algorithm SHA256).Hash
+
+解压后，在软件包目录中运行：
 
 .. code-block:: powershell
 
    .\ppreproc.ps1 -Version
    .\ppreproc.ps1 -Input D:\data\sample.raw
 
-应用程序面向 64 位 Windows，并需要 .NET Framework 4.8。
+应用程序需要 64 位 Windows 和 .NET Framework 4.8。
 
 Python SDK
 ==========

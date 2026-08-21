@@ -6,11 +6,9 @@ pPreProc is a Windows mass-spectrometry preprocessing application with an
 indexed PFB/PFC interface for fast downstream access. This site documents the
 application workflow, public SDKs, and file-format contract.
 
-.. note::
-
-   The application is distributed as a proprietary binary. Its source code is
-   not included in the public repository. The Python and C++ PFB/PFC SDKs,
-   examples, and interface specification are public under BSD-3-Clause.
+The application is distributed as a Windows binary. The public repository
+contains the PFB/PFC specification, reference SDKs, examples, and documentation;
+it does not contain the application or vendor SDK source.
 
 .. toctree::
    :caption: Getting started
@@ -44,10 +42,9 @@ application workflow, public SDKs, and file-format contract.
    reference/compatibility
 
 .. toctree::
-   :caption: Project
+   :caption: Help
    :maxdepth: 2
 
-   project/releases
    project/support
 
 Links

@@ -5,22 +5,26 @@ Installation
 Windows application
 ===================
 
-Runnable pPreProc packages are published on the GitHub
-`Releases page <https://github.com/crf-pfind/pPreProc/releases>`_. A valid
-application release contains a Windows ZIP archive, checksums, release notes,
-and the applicable license and third-party notices.
+Open the GitHub `Releases page
+<https://github.com/crf-pfind/pPreProc/releases>`_ and download
+``pPreProc-<version>-windows-x64.zip`` together with its ``.sha256`` file.
+The automatically generated ``Source code`` archives are not application
+packages.
 
-The current standalone package is the ``2.5.2-rc.1`` Windows x64 release
-candidate. Download the asset named ``pPreProc-2.5.2-rc.1-windows-x64.zip``;
-the automatically generated ``Source code`` archives are not application
-packages. Verify the adjacent ``.sha256`` file, extract the ZIP, and run:
+Compare the published checksum with:
+
+.. code-block:: powershell
+
+   (Get-FileHash .\pPreProc-<version>-windows-x64.zip -Algorithm SHA256).Hash
+
+Extract the ZIP, open PowerShell in the extracted directory, and run:
 
 .. code-block:: powershell
 
    .\ppreproc.ps1 -Version
    .\ppreproc.ps1 -Input D:\data\sample.raw
 
-The application targets 64-bit Windows and requires .NET Framework 4.8.
+The application requires 64-bit Windows and .NET Framework 4.8.
 
 Python SDK
 ==========

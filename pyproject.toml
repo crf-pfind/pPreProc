@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "ppreproc-pfb"
 version = "1.0.0"
 description = "Versioned reference reader for the pPreProc PFB/PFC v1 format"
-readme = "README.md"
+readme = "sdk/python/README.md"
 license = "BSD-3-Clause"
 license-files = ["LICENSE"]
 requires-python = ">=3.9"

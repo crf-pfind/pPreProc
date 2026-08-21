@@ -2,7 +2,6 @@
 
 [![CI](https://github.com/crf-pfind/pPreProc/actions/workflows/ci.yml/badge.svg)](https://github.com/crf-pfind/pPreProc/actions/workflows/ci.yml)
 [![Documentation](https://readthedocs.org/projects/ppreproc/badge/?version=latest)](https://ppreproc.readthedocs.io/en/latest/)
-[![License: BSD-3-Clause](https://img.shields.io/badge/license-BSD--3--Clause-blue.svg)](LICENSE)
 
 pPreProc is a Windows application for mass-spectrometry data preprocessing.
 Its indexed PFB/PFC interface supports fast downstream spectrum access.
@@ -13,32 +12,27 @@ Its indexed PFB/PFC interface supports fast downstream spectrum access.
 [Issues](https://github.com/crf-pfind/pPreProc/issues) ·
 [Discussions](https://github.com/crf-pfind/pPreProc/discussions)
 
-## Windows application
+## Download
 
-Download `pPreProc-*-windows-x64.zip` from GitHub Releases. The automatically
-generated source archives do not contain the application. Each application
-release includes its checksum, license, runtime inventory, and third-party
-notices.
+Download `pPreProc-<version>-windows-x64.zip` and its checksum from
+[GitHub Releases](https://github.com/crf-pfind/pPreProc/releases). The
+automatically generated source archives are not runnable application packages.
+Installation and command examples are in the
+[documentation](https://ppreproc.readthedocs.io/en/latest/getting-started/installation.html).
 
-The validated end-to-end workflow currently covers data-dependent acquisition
-(DDA). PFB/PFC stores spectra independently of acquisition scheme; DIA-specific
-precursor processing is under development.
+## Repository contents
 
-## Public interfaces
+This repository contains the public components that accompany the Windows
+application:
 
-The proprietary application source is not included in this repository. The
-public developer components are:
+- [Python PFB/PFC SDK and CLI](sdk/python/)
+- [C++17 PFB/PFC SDK](sdk/cpp/)
+- [PFB/PFC format specification](interfaces/pfb-pfc/)
+- [English and Chinese documentation](docs/)
 
-| Component | Location | Version |
-|---|---|---:|
-| Python PFB/PFC SDK and CLI | `sdk/python/` | 1.0.0 |
-| Header-only C++17 SDK | `sdk/cpp/` | 1.0.0 |
-| PFB/PFC specification | `interfaces/pfb-pfc/v1/` | v1 |
-| Windows packaging metadata | `distribution/windows/` | 2.5.2-rc.1 |
-| English and Chinese documentation | `docs/` | latest |
-
-Compatibility details are maintained in the
-[documentation](https://ppreproc.readthedocs.io/en/latest/reference/compatibility.html).
+The proprietary application source and vendor SDK source are not included.
+The supported application, SDK, and format combinations are listed in the
+[compatibility reference](https://ppreproc.readthedocs.io/en/latest/reference/compatibility.html).
 
 ## Python SDK
 
@@ -60,13 +54,14 @@ See the [Python](https://ppreproc.readthedocs.io/en/latest/reference/python-api.
 and [C++](https://ppreproc.readthedocs.io/en/latest/reference/cpp-api.html)
 references for the complete public API.
 
-## Support and licensing
+## Support and license
 
 - Report reproducible defects through [GitHub Issues](https://github.com/crf-pfind/pPreProc/issues).
 - Use [GitHub Discussions](https://github.com/crf-pfind/pPreProc/discussions) for questions and proposals.
 - Report vulnerabilities according to the [security policy](.github/SECURITY.md).
 - Public contributions follow the [contribution guide](.github/CONTRIBUTING.md).
 
-Public source files are licensed under [BSD-3-Clause](LICENSE). The Windows
-application and bundled third-party runtimes are governed by the terms included
-with each release. Citation metadata are available in [CITATION.cff](CITATION.cff).
+The public SDKs, specification, examples, and documentation are licensed under
+[BSD-3-Clause](LICENSE). The Windows application and bundled runtimes are
+governed by the terms included with each application release. Citation metadata
+for the public PFB/PFC SDK are available in [CITATION.cff](CITATION.cff).

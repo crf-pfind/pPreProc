@@ -17,8 +17,7 @@ access workflows. Its named fields cover spectrum identity and linkage,
 retention time, instrument context, activation and precursor attributes, peak
 count, and PFB byte boundaries.
 
-This is a deliberate interface boundary, not a claim that PFC serializes every
-attribute exposed by every vendor API.
+PFC does not serialize every attribute exposed by every vendor API.
 
 ==============================  ============================================
 Data                            v1 guarantee

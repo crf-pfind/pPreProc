@@ -1,6 +1,6 @@
 ## Summary
 
-Describe the public surface changed and why the change is needed.
+Describe what changed and why the change is needed.
 
 ## Validation
 
