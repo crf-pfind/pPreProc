@@ -1,0 +1,26 @@
+Vendor Runtime Components
+
+The pPreProc Windows package contains unmodified runtime libraries from
+Thermo Fisher Scientific, Bruker Daltonics, and SCIEX. These files are not
+licensed under the pPreProc Application License or the public repository's
+BSD 3-Clause License.
+
+They are included only as inseparable runtime dependencies for reading data
+that a user is authorized to access. They may not be extracted, reused, or
+redistributed as stand-alone SDKs or libraries. Product names and trademarks
+belong to their respective owners and do not imply endorsement.
+
+Thermo Fisher Scientific RawFileReader
+  https://github.com/thermofisherlsms/RawFileReader
+  https://github.com/thermofisherlsms/RawFileReader/blob/main/License.doc
+
+Bruker timsdata SDK runtime
+  Copyright (C) Bruker Daltonics GmbH & Co. KG.
+  Use remains subject to the Bruker terms under which the SDK was supplied.
+
+SCIEX Clearcore runtime
+  Copyright AB SCIEX.
+  Use remains subject to the SCIEX terms under which the runtime was supplied.
+
+Contact chihao@ict.ac.cn before any redistribution outside the unmodified
+pPreProc application package.

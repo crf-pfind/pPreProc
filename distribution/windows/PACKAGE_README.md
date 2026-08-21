@@ -23,7 +23,9 @@ checksum against the value published with the GitHub Release before use.
 
 `APPLICATION_LICENSE.txt` governs the proprietary application. Public launcher
 components and third-party files are covered by the accompanying notices and
-license texts.
+license texts. `runtime-provenance.json`, `runtime-manifest.json`, and
+`RUNTIME_INVENTORY.json` record where the runtime came from, what is included,
+and the checksum of every included file.
 
 Report reproducible defects at https://github.com/crf-pfind/pPreProc/issues.
 Do not attach restricted vendor data or confidential logs.

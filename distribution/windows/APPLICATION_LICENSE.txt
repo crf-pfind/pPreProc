@@ -1,0 +1,90 @@
+pPreProc Application License Agreement
+Version 1.0, 21 August 2026
+
+Copyright (c) 2026, pPreProc contributors. All rights reserved.
+
+1. Scope
+
+This agreement applies to the compiled pPreProc Windows application supplied
+with it, including pParse2+, the bundled pParse and pXtract modules, project
+configuration and model files, and related application documentation
+(collectively, the "Application"). Public SDK, interface, example, and
+documentation source files are licensed separately under the license stated
+in the public repository.
+
+2. License grant
+
+Subject to this agreement, the copyright holders grant an individual or
+organization a non-exclusive, royalty-free, non-transferable license to
+install and use unmodified copies of the Application for research, education,
+and internal evaluation. An organization may make reasonable internal copies
+for its authorized users.
+
+3. Restrictions
+
+Except where applicable law expressly permits otherwise, you may not:
+
+* redistribute, sell, sublicense, rent, lease, or host the Application for
+  third-party use;
+* separate bundled vendor runtime components for independent use or
+  redistribution;
+* reverse engineer, decompile, or disassemble the Application; or
+* remove or alter copyright, license, attribution, or provenance notices.
+
+Written permission is required for redistribution, commercial service
+provision, or uses outside the grant above.
+
+4. Data and results
+
+This agreement does not claim ownership of input data or analysis results.
+Users are responsible for having the rights needed to process and share their
+data.
+
+5. Third-party software
+
+Third-party components are governed by their respective terms. Those terms
+are identified in THIRD_PARTY_NOTICES.txt and the third-party-licenses
+directory. If a third-party term conflicts with this agreement for that
+component, the third-party term controls for that component.
+
+6. Research use
+
+The Application is a research software tool. It is not a medical device and
+is not supplied for clinical diagnosis, treatment decisions, or any use for
+which regulatory approval is required.
+
+7. Citation
+
+Publications using pPreProc should cite the software and associated article
+using the citation information supplied with the release.
+
+8. Updates and support
+
+No update, maintenance, or support obligation is created by this agreement.
+Support, when available, is described at
+https://github.com/crf-pfind/pPreProc/blob/main/SUPPORT.md.
+
+9. Disclaimer
+
+THE APPLICATION IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+PURPOSE, ACCURACY, AND NON-INFRINGEMENT. USE OF THE APPLICATION AND
+INTERPRETATION OF ITS RESULTS ARE AT THE USER'S RISK.
+
+10. Limitation of liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
+OR CONSEQUENTIAL DAMAGES ARISING FROM THE APPLICATION OR ITS USE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+11. Termination
+
+This license terminates automatically upon a material breach. On termination,
+you must stop using and delete copies of the Application, except for copies
+retained solely where law or institutional record-retention policy requires.
+
+12. Contact and acceptance
+
+Questions about permissions may be sent to chihao@ict.ac.cn. By installing,
+copying, or using the Application, you accept this agreement.

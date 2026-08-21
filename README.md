@@ -31,10 +31,10 @@ application.
 | Examples and documentation | Public | `examples/`, `docs/` |
 | Core application source | Not included | — |
 
-The application was previously distributed with pFind 3.2.3. A standalone
-Windows package will appear on the Releases page only after its runtime and
-redistribution checks are complete. GitHub's automatically generated source
-archives are not application installers.
+The application was previously distributed with pFind 3.2.3. The first
+standalone Windows package is available as a release candidate on the Releases
+page. GitHub's automatically generated source archives are not application
+installers; use the asset named `pPreProc-*-windows-x64.zip`.
 
 ## Quick start
 
@@ -81,7 +81,7 @@ The application, SDK, and file format are versioned independently.
 | Python SDK | 1.0.0 |
 | C++ SDK | 1.0.0 |
 | PFB/PFC format | v1 |
-| Standalone application | No public release yet |
+| Standalone application | 2.5.2-rc.1 |
 
 See [COMPATIBILITY.md](COMPATIBILITY.md) before integrating a reader or
 upgrading a deployed workflow.

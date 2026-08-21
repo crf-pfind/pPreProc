@@ -1,0 +1,89 @@
+pPreProc Third-Party Software Notices
+Last updated: 21 August 2026
+
+This file identifies third-party software distributed with the pPreProc
+Windows application. Copyrights remain with their respective owners. The
+pPreProc Application License does not replace third-party terms.
+
+The exact files, versions exposed by Windows metadata, sizes, and SHA-256
+digests are recorded in RUNTIME_INVENTORY.json in each release archive. A
+machine-readable component list is supplied as third-party-components.json.
+
+PROPRIETARY VENDOR RUNTIMES
+
+Thermo Fisher Scientific RawFileReader
+  Shipped files: ThermoFisher.CommonCore.*.dll
+  Observed file version: 5.0.0.93
+  Copyright: Thermo Fisher Scientific
+  Terms: Thermo Fisher Scientific RawFileReader license. The runtime is
+  included only as part of pPreProc for access to authorized Thermo RAW data
+  and may not be separated for independent redistribution.
+  Upstream: https://github.com/thermofisherlsms/RawFileReader
+  License: https://github.com/thermofisherlsms/RawFileReader/blob/main/License.doc
+
+Bruker timsdata SDK runtime
+  Shipped file: timsdata.dll
+  Observed file version: 2.21.104.32-342-vc142
+  Copyright: Bruker Daltonics GmbH & Co. KG
+  Terms: Bruker SDK terms applicable to the runtime supplied to the project.
+  The library is included only for reading authorized timsTOF data and may
+  not be separated for independent use or redistribution.
+
+SCIEX Clearcore runtime
+  Shipped files: Clearcore*.dll
+  Observed product version: 2.0.1020.0
+  Copyright: AB SCIEX
+  Terms: SCIEX terms applicable to the runtime supplied to the project. The
+  libraries are included only for reading authorized WIFF data and may not be
+  separated for independent use or redistribution.
+
+MICROSOFT RUNTIMES
+
+Microsoft Visual C++ Runtime and OpenMP Runtime
+  Shipped files include msvcp140.dll, vcruntime140.dll,
+  vcruntime140_1.dll, and vcomp140.dll.
+  These unmodified redistributable files are deployed app-locally from the
+  x64 Visual Studio Redistributable directory and remain subject to the
+  Microsoft Visual Studio license terms.
+  Information: https://learn.microsoft.com/cpp/windows/redistributing-visual-cpp-files
+
+Microsoft Universal C Runtime and System.ValueTuple
+  UCRT files embedded in the Python runtime and System.ValueTuple.dll remain
+  subject to the applicable Microsoft terms and notices.
+
+OPEN-SOURCE COMPONENTS
+
+The release includes the following components either as separate libraries or
+inside the pParse2+ embedded Python runtime:
+
+* Apache log4net 2.0.8 - Apache License 2.0.
+* CPython 3.12.0 - Python Software Foundation License Version 2 and the
+  additional licenses listed by the Python project.
+* DotNetZip Ionic.Zlib 1.9.1.5 - Microsoft Public License.
+* importlib_metadata 8.0.0 - Apache License 2.0.
+* libffi - MIT-style license.
+* Mono.Options 5.3.0 - MIT license; upstream third-party notices also apply.
+* NumPy and the bundled OpenBLAS runtime - BSD 3-Clause and applicable
+  upstream notices.
+* OpenSSL 3 - Apache License 2.0.
+* packaging - Apache License 2.0.
+* pandas - BSD 3-Clause.
+* psutil - BSD 3-Clause.
+* PyInstaller bootloader - GNU General Public License Version 2 or later with
+  the special exception permitting distribution of bundled applications.
+* python-dateutil - BSD 3-Clause.
+* pytz - MIT license.
+* PyYAML - MIT license.
+* setuptools - MIT license; licenses for its vendored dependencies remain
+  applicable.
+* six - MIT license.
+* SQLite, including sqlite3.dll - public domain dedication.
+* typing_extensions - Python Software Foundation License Version 2.
+* wheel 0.43.0 - MIT license.
+* zipp - MIT license.
+* zlib - zlib License.
+
+Canonical texts and component-specific notes are in third-party-licenses.
+Where an upstream distribution contains more detailed notices, those notices
+remain applicable. No third-party name or trademark is used to endorse
+pPreProc.

@@ -1,0 +1,15 @@
+PyInstaller Bootloader Exception
+
+PyInstaller is licensed under the GNU General Public License, version 2 or
+later, with a special exception for distributing bundled applications.
+
+The exception states that distributing the bootloader together with other
+files to form a larger work does not by itself cause the resulting larger
+work to be covered by the GNU General Public License. The exception does not
+override the license of any other bundled component.
+
+The complete and current PyInstaller license text is maintained at:
+https://pyinstaller.org/en/stable/license.html
+
+PyInstaller source code is available at:
+https://github.com/pyinstaller/pyinstaller

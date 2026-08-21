@@ -1,5 +1,0 @@
-pPreProc application distribution terms
-
-This placeholder is not a license and must not be included in a public
-release. Replace it with project-approved terms in APPLICATION_LICENSE.txt
-before packaging the proprietary application.

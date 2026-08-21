@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "application": "pPreProc",
+  "application_runtime_source": "pFind 3.2.3",
+  "application_runtime_path_role": "The release is assembled from the pFind 3.2.3 bin directory supplied and approved by the project owner.",
+  "microsoft_runtime_source": "Microsoft Visual C++ 2015-2022 compatible x64 Redistributable files from a licensed Visual Studio installation",
+  "approval_date": "2026-08-21",
+  "approval": "Approved by the pPreProc release owner for standalone packaging.",
+  "boundary": "Only entries in runtime-manifest.json are copied. pFind search, reporting, GUI, installer, and unrelated tools are excluded.",
+  "vendor_components": "Vendor runtime libraries remain subject to their respective vendor terms and may not be separated from the application package for independent use."
+}

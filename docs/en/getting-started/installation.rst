@@ -10,10 +10,17 @@ Runnable pPreProc packages are published on the GitHub
 application release contains a Windows ZIP archive, checksums, release notes,
 and the applicable license and third-party notices.
 
-No standalone application Release is currently published. The ``Source code``
-archives generated automatically by GitHub contain the public repository, not
-the Windows application. Until the standalone package is released, the
-application remains available through pFind 3.2.3.
+The current standalone package is the ``2.5.2-rc.1`` Windows x64 release
+candidate. Download the asset named ``pPreProc-2.5.2-rc.1-windows-x64.zip``;
+the automatically generated ``Source code`` archives are not application
+packages. Verify the adjacent ``.sha256`` file, extract the ZIP, and run:
+
+.. code-block:: powershell
+
+   .\ppreproc.ps1 -Version
+   .\ppreproc.ps1 -Input D:\data\sample.raw
+
+The application targets 64-bit Windows and requires .NET Framework 4.8.
 
 Python SDK
 ==========

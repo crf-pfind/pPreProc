@@ -10,9 +10,17 @@ Windows 应用程序
 有效的应用程序 Release 应包含 Windows ZIP 包、校验和、发行说明以及适用的
 许可证和第三方声明。
 
-目前尚未发布独立应用程序 Release。GitHub 自动生成的 ``Source code`` 压缩包
-只包含本公共仓库，并不是 Windows 应用程序安装包。在独立版本发布前，应用程序
-仍通过 pFind 3.2.3 提供。
+当前独立应用程序为 ``2.5.2-rc.1`` Windows x64 候选版本。请下载名为
+``pPreProc-2.5.2-rc.1-windows-x64.zip`` 的附件；GitHub 自动生成的
+``Source code`` 压缩包不是应用程序。先用相邻的 ``.sha256`` 文件核验压缩包，
+解压后运行：
+
+.. code-block:: powershell
+
+   .\ppreproc.ps1 -Version
+   .\ppreproc.ps1 -Input D:\data\sample.raw
+
+应用程序面向 64 位 Windows，并需要 .NET Framework 4.8。
 
 Python SDK
 ==========

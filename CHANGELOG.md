@@ -17,6 +17,16 @@ SDKs, and PFB/PFC format use independent versions.
 - Define public repository scope, support channels, component licensing, and a
   release process for future application binaries.
 
+## [2.5.2-rc.1] - 2026-08-21
+
+### Added
+
+- Package pPreProc as a standalone Windows x64 release candidate.
+- Add an explicit application license, third-party component inventory,
+  runtime provenance, file-level SHA-256 inventory, and archive checksum.
+- Bundle only the pParse2+, pParse, pXtract, model, vendor-reader, and Microsoft
+  runtime files required by the preprocessing workflow.
+
 ## [1.0.0] - 2026-08-21
 
 ### Added

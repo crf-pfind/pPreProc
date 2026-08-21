@@ -5,7 +5,7 @@ file format.
 
 | Application | Python SDK | C++ SDK | PFB/PFC | Status |
 |---|---|---|---|---|
-| Not yet released | 1.0.x | 1.0.x | v1 | Current public interface |
+| 2.5.2-rc.1 | 1.0.x | 1.0.x | v1 | Windows release candidate |
 
 ## Guarantees for PFB/PFC v1
 

@@ -110,7 +110,7 @@ def main() -> int:
 
     manifest_path = ROOT / "distribution/windows/runtime-manifest.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    if manifest.get("schema_version") != 1:
+    if manifest.get("schema_version") != 2:
         errors.append("unsupported runtime-manifest schema_version")
     seen: set[str] = set()
     for entry in manifest.get("entries", []):
@@ -123,6 +123,20 @@ def main() -> int:
         seen.add(normalized)
         if "required" not in entry or "category" not in entry:
             errors.append(f"incomplete runtime-manifest entry: {relative}")
+        source_root = entry.get("source_root", "application")
+        if source_root not in {"application", "microsoft_vc"}:
+            errors.append(f"unsupported runtime source root: {source_root}")
+
+    release_evidence = [
+        ROOT / "distribution/windows/APPLICATION_LICENSE.txt",
+        ROOT / "distribution/windows/runtime-provenance.json",
+        ROOT / "distribution/windows/third-party/THIRD_PARTY_NOTICES.txt",
+        ROOT / "distribution/windows/third-party/third-party-components.json",
+        ROOT / "distribution/windows/third-party/licenses/Apache-2.0.txt",
+    ]
+    for path in release_evidence:
+        if not path.is_file():
+            errors.append(f"release evidence is missing: {path.relative_to(ROOT)}")
 
     print(json.dumps({"errors": errors}, indent=2))
     return 1 if errors else 0

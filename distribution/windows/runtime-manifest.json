@@ -1,7 +1,11 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "source_distribution": "pFind 3.2.3",
   "description": "Explicit standalone pPreProc runtime boundary; unrelated pFind search, GUI, and reporting tools are excluded.",
+  "source_roots": {
+    "application": "pFind 3.2.3 bin directory supplied by the project owner",
+    "microsoft_vc": "x64 Microsoft Visual C++ Redistributable directory from a licensed Visual Studio installation"
+  },
   "entries": [
     {"path": "pParse.exe", "required": true, "category": "pPreProc-core"},
     {"path": "pParse_Release.txt", "required": true, "category": "pPreProc-core"},
@@ -44,10 +48,11 @@
     {"path": "log4net.xml", "required": false, "category": "third-party-documentation"},
     {"path": "Mono.Options.dll", "required": true, "category": "third-party-runtime"},
     {"path": "sqlite3.dll", "required": true, "category": "third-party-runtime"},
-    {"path": "concrt140.dll", "required": true, "category": "microsoft-runtime"},
-    {"path": "msvcp110.dll", "required": true, "category": "microsoft-runtime"},
-    {"path": "msvcp120.dll", "required": true, "category": "microsoft-runtime"},
-    {"path": "msvcp140.dll", "required": true, "category": "microsoft-runtime"},
-    {"path": "vcruntime140.dll", "required": true, "category": "microsoft-runtime"}
+    {"path": "System.ValueTuple.dll", "required": true, "category": "third-party-runtime"},
+
+    {"path": "msvcp140.dll", "required": true, "category": "microsoft-runtime", "source_root": "microsoft_vc", "source_path": "Microsoft.VC143.CRT/msvcp140.dll"},
+    {"path": "vcruntime140.dll", "required": true, "category": "microsoft-runtime", "source_root": "microsoft_vc", "source_path": "Microsoft.VC143.CRT/vcruntime140.dll"},
+    {"path": "vcruntime140_1.dll", "required": true, "category": "microsoft-runtime", "source_root": "microsoft_vc", "source_path": "Microsoft.VC143.CRT/vcruntime140_1.dll"},
+    {"path": "vcomp140.dll", "required": true, "category": "microsoft-runtime", "source_root": "microsoft_vc", "source_path": "Microsoft.VC143.OpenMP/vcomp140.dll"}
   ]
 }

@@ -27,6 +27,7 @@ notices, the runtime manifest, and `SHA256SUMS.txt`.
    .\tools\build_windows_release.ps1 `
        -Version X.Y.Z `
        -SourceBin D:\path\to\authorized\bin `
+       -VCRuntimeDirectory 'C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Redist\MSVC\14.38.33130\x64' `
        -AcknowledgeRedistributionRights
    ```
 

@@ -27,6 +27,10 @@ compatibility, improvements, fixes, breaking changes, known issues, and
 checksums. The historical ``v1.0.0`` tag establishes the initial public SDK and
 format baseline; it is not a standalone application Release.
 
+The first standalone package is ``2.5.2-rc.1`` for Windows x64. It is a
+pre-release intended to validate installation and vendor-format workflows
+before the stable ``2.5.2`` release.
+
 Documentation versions
 ======================
 
@@ -38,6 +42,6 @@ available.
 Support lifecycle
 =================
 
-Application support dates and end-of-life status will be published with the
-first standalone release. Until then, the repository makes no unsupported
-long-term-support commitment.
+Release candidates do not carry a long-term-support commitment. Support dates
+and end-of-life status will be published with the first stable standalone
+release.
