@@ -13,6 +13,12 @@ SEMVER = re.compile(
     r"(?:-[0-9A-Za-z.-]+)?(?:\+[0-9A-Za-z.-]+)?$"
 )
 
+PROHIBITED_CHINESE_TERMS = {
+    "母谱": "一级谱",
+    "子谱": "二级谱",
+    "前体": "母离子",
+}
+
 
 def _required_files() -> list[str]:
     return [
@@ -124,6 +130,17 @@ def main() -> int:
         errors.append(f"Chinese documentation is missing: {missing}")
     for missing in sorted(chinese - english):
         errors.append(f"English documentation is missing: {missing}")
+
+    for path in sorted((ROOT / "docs" / "zh_CN").rglob("*.rst")):
+        content = path.read_text(encoding="utf-8")
+        relative = path.relative_to(ROOT).as_posix()
+        for prohibited, preferred in PROHIBITED_CHINESE_TERMS.items():
+            for line_number, line in enumerate(content.splitlines(), start=1):
+                if prohibited in line:
+                    errors.append(
+                        f"nonstandard Chinese term {prohibited!r} in "
+                        f"{relative}:{line_number}; use {preferred!r}"
+                    )
 
     prohibited_suffixes = {".dll", ".exe", ".obj", ".pdb", ".zip"}
     ignored_parts = {".git", "build", "runtime", "__pycache__"}

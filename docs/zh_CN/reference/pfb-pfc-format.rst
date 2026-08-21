@@ -2,9 +2,9 @@
 PFB/PFC v1 参考
 ==================
 
-PFB/PFC v1 是成对、带索引的表示形式。``name.pfb`` 保存谱图记录和尾部索引，
-``name.pfc`` 保存对应的制表符分隔元数据。记录序号、尾部索引序号和 PFC 数据行
-序号指向同一张谱图。
+PFB/PFC v1 由两个配套文件组成，并支持索引访问。``name.pfb`` 保存谱图记录和
+尾部索引，``name.pfc`` 保存对应的制表符分隔元数据。记录序号、尾部索引序号和
+PFC 数据行序号均指向同一张谱图。
 
 基本类型
 ========
@@ -35,7 +35,7 @@ PFB 布局
 20      ``int32``   ``spectrum_count``  记录数及 PFC 数据行数
 ======  ==========  ==================  =============================
 
-每条谱图记录依次包含 ``uint32`` 属性字节数、UTF-8 属性字节、``uint32`` 峰数、
+每条谱图记录依次包含 ``uint32`` 属性字节数、UTF-8 属性字节、``uint32`` 谱峰数、
 ``peak_count`` 个 binary64 m/z 值和同样数量的 binary64 强度值。记录间不定义
 对齐填充。
 
@@ -52,7 +52,7 @@ PFC 是 UTF-8 制表符分隔文本，包含一个表头和每张谱图一行数
 * 标识与关联：``ScanNo``、``PrecursorScan``；
 * 采集上下文：``RetTime``、``SpectrumType``、``InstrumentType``、
   ``IonInjectionTime``；
-* 活化与前体信息：``activationType``、``activationCenter``、``NCE``、
+* 活化与母离子信息：``activationType``、``activationCenter``、``NCE``、
   ``monoIsotopicMz``、``upperCharge``、``lowerCharge``、
   ``activationWindow``；
 * 完整性字段：``NumberofPeaks``、``StartPos``、``EndPos``。

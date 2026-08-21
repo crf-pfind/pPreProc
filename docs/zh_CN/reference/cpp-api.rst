@@ -2,8 +2,8 @@
 C++17 SDK 参考
 ================
 
-仅头文件 SDK 位于 ``sdk/cpp/include/ppreproc/pfb_reader.hpp``，只依赖 C++17
-标准库。
+仅含头文件的 SDK 位于 ``sdk/cpp/include/ppreproc/pfb_reader.hpp``，只依赖
+C++17 标准库。
 
 构建示例
 ========
@@ -35,10 +35,10 @@ C++17 SDK 参考
    表示输入损坏或不兼容。
 
 ``ppreproc::spectrum_record``
-   包含序号、PFB 字节边界、属性文本、m/z 与强度数组以及 PFC 元数据。
+   包含记录序号、PFB 字节边界、属性文本、m/z 与强度数组以及 PFC 元数据。
 
 ``ppreproc::pfb_reader``
-   打开 PFB/PFC 文件对，并提供 ``size()``、``index_address()``、
+   打开配套的 PFB/PFC 文件，并提供 ``size()``、``index_address()``、
    ``spectrum()``、``spectrum_by_scan()`` 和 ``parent_ms1()``。
 
-构造函数会验证尾部索引和 PFC 必需列。C++ SDK 要求 PFC 伴随文件存在。
+构造函数会验证尾部索引和 PFC 必需列。C++ SDK 要求配套 PFC 文件存在。

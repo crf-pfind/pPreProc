@@ -2,11 +2,11 @@
 使用 PFB/PFC
 ================
 
-打开文件对
-==========
+打开配套文件
+============
 
 ``PFBReader("run.pfb")`` 会打开 ``run.pfb`` 及同名的 ``run.pfc``。仅当两个
-文件路径不同才需要传入 ``pfc_path``。构造读取器时会检查头部、尾部索引、
+文件路径不同才需要传入 ``pfc_path``。创建读取器时会检查头部、尾部索引、
 PFC 必需列、记录数和扫描号。
 
 随机访问
@@ -23,21 +23,21 @@ PFC 必需列、记录数和扫描号。
 仅读取元数据
 ============
 
-不需要峰数组时可设置 ``with_arrays=False``：
+不需要谱峰数组时可设置 ``with_arrays=False``：
 
 .. code-block:: python
 
    for spectrum in reader.iter_spectra(with_arrays=False):
        print(spectrum.scan_number, spectrum.metadata["RetTime"])
 
-定位母谱
-========
+定位对应的一级谱
+================
 
-``get_parent_ms1()`` 沿 ``PrecursorScan`` 关系查找对应 MS1。关联缺失、扫描号
-不存在或出现循环时会明确报错，而不会静默忽略。
+``get_parent_ms1()`` 沿 ``PrecursorScan`` 记录的谱图关联关系查找对应一级谱
+（MS1）。关联缺失、扫描号不存在或出现循环关联时会明确报错，不会静默忽略。
 
-提取 XIC
-========
+提取离子流色谱图（XIC）
+=======================
 
 .. code-block:: python
 
@@ -49,4 +49,4 @@ PFC 必需列、记录数和扫描号。
        faims_cv=None,
    )
 
-返回结果为请求窗口内 MS1 谱图的 ``(保留时间, 强度和)`` 列表。
+返回结果为指定窗口内一级谱的 ``(保留时间, 强度总和)`` 列表。

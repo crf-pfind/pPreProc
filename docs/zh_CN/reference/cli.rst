@@ -22,19 +22,19 @@ UTF-8 JSON。
    ppreproc-pfb validate run.pfb
    ppreproc-pfb validate run.pfb --full
 
-打开文件对时始终进行结构检查。``--full`` 还会解码每条记录，核对 PFB/PFC
-峰数和字节边界，解析保留时间，并验证已声明的母谱关联。
+打开配套的 PFB/PFC 文件时始终进行结构检查。``--full`` 还会解码每条记录，
+核对 PFB/PFC 谱峰数和字节边界，解析保留时间，并验证已声明的一级谱关联关系。
 
-谱图定位
-========
+按序号或扫描号读取谱图
+======================
 
 .. code-block:: console
 
    ppreproc-pfb spectrum run.pfb --index 0
    ppreproc-pfb spectrum run.pfb --scan 102
 
-输出包含记录属性和元数据，但不包含峰数组。需要数组时请使用 Python 或 C++
-SDK。
+输出包含记录属性和元数据，但不包含谱峰数组。需要谱峰数组时请使用 Python 或
+C++ SDK。
 
 退出状态
 ========

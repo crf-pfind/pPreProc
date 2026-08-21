@@ -2,13 +2,14 @@
 pPreProc 文档
 =============
 
-pPreProc 是面向质谱数据预处理的 Windows 应用程序，并通过带索引的
-PFB/PFC 接口支持下游快速访问。本文档介绍应用流程、公开 SDK 和文件格式约定。
+pPreProc 是用于质谱数据预处理的 Windows 应用程序，并通过带索引的
+PFB/PFC 接口支持下游软件快速访问数据。本文档介绍应用程序工作流程、公开
+SDK 和文件格式规范。
 
 .. note::
 
-   pPreProc 应用程序以闭源二进制形式发布，核心源码不包含在本仓库中。
-   Python/C++ PFB/PFC SDK、示例和接口规范以 BSD-3-Clause 许可证公开。
+   pPreProc 应用程序以专有二进制软件包发布，核心源码未在本仓库公开。
+   Python 和 C++ PFB/PFC SDK、示例及接口规范以 BSD-3-Clause 许可证公开。
 
 .. toctree::
    :caption: 快速开始
@@ -47,6 +48,25 @@ PFB/PFC 接口支持下游快速访问。本文档介绍应用流程、公开 SD
 
    project/releases
    project/support
+
+中文术语约定
+============
+
+本中文版统一使用以下质谱术语：
+
+============================  ============================
+英文                          中文
+============================  ============================
+MS1 spectrum / MS2 spectrum   一级谱 / 二级谱
+precursor ion / product ion   母离子 / 子离子
+fragment ion                  碎片离子
+spectrum / peak               谱图 / 谱峰
+scan number                   扫描号
+retention time                保留时间
+ion mobility                  离子淌度
+isolation window              隔离窗口
+FAIMS compensation voltage    FAIMS 补偿电压
+============================  ============================
 
 相关链接
 ========
