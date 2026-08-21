@@ -1,0 +1,4 @@
+ScanNo	PrecursorScan	RetTime	SpectrumType	InstrumentType	IonInjectionTime	activationType	activationCenter	NCE	monoIsotopicMz	upperCharge	lowerCharge	activationWindow	NumberofPeaks	StartPos	EndPos
+101		10.0	MS1	Synthetic									3	24	93
+102	101	10.2	MS2	Synthetic		HCD			500.2				2	93	146
+103		11.0	MS1	Synthetic									2	146	199

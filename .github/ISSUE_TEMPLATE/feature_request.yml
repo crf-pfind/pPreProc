@@ -1,0 +1,34 @@
+name: Feature request
+description: Propose a scoped workflow, format, or reader enhancement
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Target surface
+      options:
+        - Windows preprocessing runtime
+        - Python PFB/PFC reader
+        - C++ PFB/PFC reader
+        - PFB/PFC specification
+        - Documentation or integration
+    validations:
+      required: true
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Scientific or integration use case
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility considerations
+      description: Explain effects on indexed PFB/PFC v1 readers or existing workflows.

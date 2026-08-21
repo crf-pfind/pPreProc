@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ppreproc-pfb"
+version = "1.0.0"
+description = "Versioned reference reader for the pPreProc PFB/PFC v1 format"
+readme = "README.md"
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+requires-python = ">=3.9"
+authors = [
+  {name = "Ranfei Chen"},
+  {name = "Pengzhi Mao"},
+  {name = "Ching Tarn"},
+  {name = "Jiale Zhao"},
+  {name = "Hao Chi", email = "chihao@ict.ac.cn"},
+]
+keywords = ["proteomics", "mass spectrometry", "PFB", "PFC", "pPreProc"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Operating System :: OS Independent",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+
+[project.urls]
+Homepage = "https://github.com/crf-pfind/pPreProc"
+Repository = "https://github.com/crf-pfind/pPreProc"
+Documentation = "https://github.com/crf-pfind/pPreProc/tree/main/docs"
+Issues = "https://github.com/crf-pfind/pPreProc/issues"
+
+[project.scripts]
+ppreproc-pfb = "ppreproc_pfb.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

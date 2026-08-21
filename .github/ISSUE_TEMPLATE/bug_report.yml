@@ -1,0 +1,61 @@
+name: Bug report
+description: Report a reproducible pPreProc or PFB/PFC reader problem
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Do not upload proprietary vendor data. Use the synthetic fixture or a
+        minimal shareable example whenever possible.
+  - type: input
+    id: version
+    attributes:
+      label: pPreProc version
+      placeholder: v1.0.0
+    validations:
+      required: true
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Affected surface
+      options:
+        - Windows preprocessing runtime
+        - Python PFB/PFC reader
+        - C++ PFB/PFC reader
+        - Format specification
+        - Release/build tooling
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system, architecture, Python/compiler version, and input format
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Exact command/configuration and the smallest permitted input description
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed and expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log excerpt
+      render: text
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Data authorization
+      options:
+        - label: I have authorization to share every attached file and removed sensitive paths or identifiers.
+          required: true

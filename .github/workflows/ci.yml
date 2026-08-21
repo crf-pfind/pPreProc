@@ -1,0 +1,37 @@
+name: interface-ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.14"]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -m pip install .
+      - run: python tools/generate_fixture.py
+      - run: python -m unittest discover -s tests -v
+      - run: python tools/validate_release.py
+
+  cpp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Configure C++17 reader
+        run: >-
+          cmake -S cpp -B build/cmake -DCMAKE_BUILD_TYPE=Release
+          -DCMAKE_CXX_FLAGS="-Wall -Wextra -pedantic"
+      - name: Build C++17 reader
+        run: cmake --build build/cmake --config Release
+      - name: Test C++17 reader
+        run: ctest --test-dir build/cmake --build-config Release --output-on-failure
