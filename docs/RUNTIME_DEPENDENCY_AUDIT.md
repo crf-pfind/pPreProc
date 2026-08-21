@@ -69,15 +69,15 @@ unserviced copies of individual DLLs.
 
 The repository's original Python/C++ reader source can be licensed separately
 from the Windows executable bundle. This split permits the public, inspectable
-PFB/PFC interface to be released even while binary-runtime terms are being
-resolved, but it should not be described as the complete standalone Windows
-preprocessor until that runtime is actually available.
+PFB/PFC interface to be maintained as online documentation and repository
+source while binary-runtime terms are being resolved, but it should not be
+described as the complete standalone Windows preprocessor until that runtime is
+actually available.
 
 A subsequent audit of the pFind 3.2.3 development tree located historical
 pParse2, pParse2+, and pXtract application projects. They remain coupled to
-platform-specific build settings and vendor SDKs and are not included in this
-initial cross-platform reader/specification source package. Consequently, the
-current repository supports a source release of the PFB/PFC interface and
-release tooling plus a separately authorized compiled Windows asset; it does
-not claim that the complete Windows application is open source. See
-`SOURCE_PROVENANCE.md`.
+platform-specific build settings and vendor SDKs and are not included in the
+current cross-platform reader source. Consequently, the repository supports
+online PFB/PFC documentation and reference-reader source plus a separately
+authorized compiled Windows software Release; it does not claim that the
+complete Windows application is open source. See `SOURCE_PROVENANCE.md`.

@@ -1,15 +1,18 @@
 # Release-readiness record — updated 2026-08-21
 
-## Recommended sequence
+## Current recommended sequence
 
-1. Publish the BSD-3-Clause source repository at its permanent URL with the
-   approved citation metadata and release date.
-2. Create tag `v1.0.0`, then archive that exact tag with Zenodo.
-3. Add the Windows ZIP to the same release only after the independent binary
-   authorization, notice, checksum, and clean-machine gates pass.
+1. Publish the English and Simplified Chinese interface documentation through
+   two linked Read the Docs projects.
+2. Keep the historical `v1.0.0` interface-baseline tag unchanged and archive
+   it separately for provenance if required.
+3. Complete binary authorization, notices, checksums, and clean-machine tests.
+4. Create a new GitHub software Release for the runnable Windows package, then
+   enable the same tag as a stable Read the Docs version.
 
-This sequence makes the PFB/PFC interface inspectable without representing an
-unreviewed vendor runtime or a compiled-only application as open source.
+This sequence keeps the PFB/PFC interface inspectable online without treating
+API files as software Release assets or representing an unreviewed vendor
+runtime as open source.
 
 ## Checks completed
 
@@ -24,14 +27,14 @@ unreviewed vendor runtime or a compiled-only application as open source.
 - Runtime manifest: every required entry resolved in the inspected pFind 3.2.3
   installation; unrelated pFind search/reporting programs are not whitelisted.
 - Windows wrapper: version reporting and a manifest-backed dry run passed.
-- Repository source-release validation: zero errors. The Windows binary gate
+- Repository validation: zero errors. The Windows binary gate
   remains independent and stops at the unresolved items listed below.
 
 Local CMake execution was not available on the audit machine. The CMake/CTest
 configuration is included in CI, while the same C++ source was compiled and run
 directly during the local audit.
 
-## Source-release decisions
+## Historical interface-baseline decisions
 
 - The original reader, specification, tests, and release-tool source is
   approved under BSD-3-Clause.
@@ -40,8 +43,9 @@ directly during the local audit.
   identifiers are included.
 - Version 1.0.0 uses the public release date 2026-08-21.
 
-The remaining source-side follow-up is to archive the exact public tag with
-Zenodo and add its version DOI.
+The remaining historical follow-up is to archive the exact public tag with
+Zenodo and add its version DOI. Current API and format material is maintained
+through the bilingual online documentation.
 
 ## Decisions required for the Windows runtime asset
 
@@ -61,7 +65,8 @@ Zenodo and add its version DOI.
 
 ## Standards used
 
-- GitHub versioned releases for tagged source and downloadable assets.
+- Read the Docs for bilingual, versioned API and format documentation.
+- GitHub Releases for runnable, tagged software packages and checksums.
 - Citation File Format 1.2.0 for machine-readable software citation metadata.
 - Semantic Versioning for the software version.
 - SPDX/PEP 639 license expressions in Python package metadata after approval.

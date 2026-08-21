@@ -1,9 +1,11 @@
 # Public release blockers
 
-The repository source and the Windows runtime asset have different publication
-gates. Completing the source-release list does not authorize the binary asset.
+Online documentation and the Windows application have different publication
+gates. Passing repository and documentation checks does not authorize a
+runnable binary package. API/specification material is maintained online and
+is not a GitHub Release asset.
 
-## Source tag v1.0.0
+## Historical interface baseline v1.0.0
 
 - [x] Approve BSD-3-Clause for the repository's original source code.
 - [x] Create the canonical public GitHub repository at
@@ -15,7 +17,8 @@ gates. Completing the source-release list does not authorize the binary asset.
 
 ## Post-publication archival
 
-- [ ] Archive the public source release with Zenodo and add the version DOI.
+- [ ] Archive the historical `v1.0.0` interface baseline with Zenodo and add
+      the version DOI.
 
 ## Windows runtime asset
 
@@ -40,7 +43,8 @@ gates. Completing the source-release list does not authorize the binary asset.
       VC++ Redistributable prerequisites (recommended) or locally redistributed
       under confirmed Visual Studio license rights.
 - [ ] Run `validate_release.py --artifact binary --source-bin <authorized-bin>`.
-- [ ] Build the ZIP from the exact source tag and attach its SHA-256 manifest.
+- [ ] Build the ZIP from the exact software tag and attach its SHA-256
+      manifest.
 - [ ] Verify the final archive on a clean Windows machine.
 
 If redistribution of one or more vendor libraries is not permitted, document

@@ -2,10 +2,11 @@
 
 Released 2026-08-21 under the BSD-3-Clause license.
 
-This is the first versioned pPreProc release separated from the pFind suite.
-The source tag publishes the supported PFB/PFC interface and release tooling.
-An independently runnable Windows preprocessing ZIP may be attached as a
-separately qualified asset after redistribution and clean-machine checks.
+This file records the historical `v1.0.0` interface-baseline tag, which was the
+first versioned pPreProc tag separated from the pFind suite. The current
+publication model maintains the PFB/PFC interface through the bilingual online
+documentation and repository source. Future GitHub Releases are reserved for
+runnable pPreProc software after redistribution and clean-machine checks.
 
 ## Highlights
 
@@ -41,8 +42,10 @@ or linkage error. See `VALIDATION.md`.
 - DIA-specific pParse support and broader real-time validation remain future
   work.
 
-## Release assets and archival
+## Historical tag and archival
 
-This release publishes the source tag only. The Zenodo version DOI will be
-added after archival. A Windows ZIP and its SHA-256 digest may be attached only
-after all runtime redistribution rights and clean-machine checks are complete.
+The tag contains repository source only and predates the Sphinx documentation
+site. Its Zenodo version DOI will be added after archival. It must not be
+rewritten or retroactively used as a runnable software Release. A future
+Windows ZIP and SHA-256 digest require a new version after all runtime
+redistribution rights and clean-machine checks are complete.

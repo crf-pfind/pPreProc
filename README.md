@@ -6,19 +6,20 @@
 
 pPreProc is a mass-spectrometry data-preprocessing framework that separates
 vendor-data extraction, precursor processing, and indexed downstream access.
-The current validated release targets data-dependent acquisition (DDA)
+The currently validated workflow targets data-dependent acquisition (DDA)
 workflows on Windows. Its PFB/PFC representation is acquisition-scheme
 agnostic; integration of DIA precursor-processing workflows is ongoing.
 
 This repository is the canonical home of pPreProc, which was originally
-distributed inside pFind 3.2.3. It separates two release surfaces:
+distributed inside pFind 3.2.3. It separates two publication channels:
 
-1. an inspectable source release containing the versioned PFB/PFC v1 contract,
-   dependency-free reference readers, tests, and release tooling; and
-2. a separately assembled Windows runtime asset containing the compiled
-   preprocessing application and only its required data-access dependencies.
+1. bilingual, versioned online documentation for the PFB/PFC contract,
+   reference readers, command-line interface, and integration guidance; and
+2. GitHub Releases reserved for a separately assembled, runnable Windows
+   application containing the compiled preprocessing components and only their
+   required runtime dependencies.
 
-This source release does not include the application source projects for the
+This repository does not include the application source projects for the
 compiled pParse/pParse2+/pXtract components. The repository must therefore not
 be described as a complete open-source release of the Windows application.
 See the [release model](docs/RELEASE_MODEL.md) and
@@ -28,10 +29,12 @@ See the [release model](docs/RELEASE_MODEL.md) and
 
 - `src/ppreproc_pfb/`: Python 3 reference reader and validation CLI.
 - `cpp/`: header-only C++17 reader and a minimal example.
+- `docs/en/` and `docs/zh_CN/`: parallel English and Simplified Chinese
+  documentation sources for Read the Docs.
 - `docs/PFB_PFC_SPECIFICATION_V1.md`: normative v1 format description.
 - `docs/ARCHITECTURE.md`: separation of the Windows application and the
   cross-platform storage interface.
-- `docs/RELEASE_MODEL.md`: source-tag and Windows-asset publication model.
+- `docs/RELEASE_MODEL.md`: online-documentation and software-release model.
 - `docs/SOURCE_PROVENANCE.md`: audited boundary of source and compiled inputs.
 - `runtime/`: created by the release builder from an authorized pFind runtime.
 - `tests/fixtures/`: small synthetic data for testing the public interface.
@@ -47,6 +50,20 @@ the pFind search suite.
 The current technical status and the independent publication gate for the
 Windows runtime are recorded in the
 [release-readiness record](docs/RELEASE_READINESS_2026-08-20.md).
+
+## Documentation
+
+The public interface is documented as a Read the Docs site rather than a
+GitHub Release artifact:
+
+- [English documentation](https://ppreproc.readthedocs.io/en/latest/)
+- [简体中文文档](https://ppreproc.readthedocs.io/zh-cn/latest/)
+
+The site configuration is already in this repository. Until the two Read the
+Docs projects are imported, the same content can be read from
+[`docs/en/`](docs/en/index.rst) and [`docs/zh_CN/`](docs/zh_CN/index.rst).
+Maintainer setup and local build commands are in
+[`docs/README.md`](docs/README.md).
 
 ## Read PFB/PFC in Python
 
@@ -74,17 +91,18 @@ between indexed v1 files and older unindexed PFB files.
 
 ## Run the Windows preprocessor
 
-The release archive will provide a single `ppreproc.ps1`/`ppreproc.cmd` entry
-point around the existing pParse2+ runtime. Typical calls are:
+A future application Release will provide a single
+`ppreproc.ps1`/`ppreproc.cmd` entry point around the existing pParse2+ runtime.
+Typical calls are:
 
 ```powershell
 .\ppreproc.ps1 -Input D:\data\sample.raw
 .\ppreproc.ps1 -Config D:\work\pParse2Plus.yaml
 ```
 
-The source package deliberately does not copy the whole pFind `bin` directory.
-The release builder uses an explicit runtime manifest so that pFind search and
-reporting programs are not presented as pPreProc components.
+The future software package deliberately does not copy the whole pFind `bin`
+directory. The release builder uses an explicit runtime manifest so that pFind
+search and reporting programs are not presented as pPreProc components.
 
 ## Data fidelity and scope
 
@@ -130,14 +148,16 @@ The reference reader has additionally completed a full decode of a current
 
 ## Release status
 
-Version 1.0.0 of the reader/specification source was released on 2026-08-21
-and is useful independently of the Windows runtime. Every source tag is
-validated against the synthetic fixture and the repository release checks.
+The historical `v1.0.0` tag established the initial public PFB/PFC interface
+baseline. On the current main branch, that interface is maintained through the
+versioned bilingual documentation site and repository source, not as a
+separate Release download.
 
-The Windows runtime is a separate release asset. It must not be uploaded until
-the team confirms redistribution rights for the pPreProc executables and every
-bundled runtime, completes the version-specific notice bundle, and passes a
-clean-machine test. See `RELEASE_BLOCKERS.md` and `third_party/README.md`.
+Future GitHub Releases are reserved for runnable pPreProc software. A Windows
+package must not be uploaded until the team confirms redistribution rights for
+the pPreProc executables and every bundled runtime, completes the
+version-specific notice bundle, and passes a clean-machine test. See
+`RELEASE_BLOCKERS.md` and `third_party/README.md`.
 
 ## Citation
 

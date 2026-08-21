@@ -4,7 +4,10 @@ All notable changes are documented here. Versions follow Semantic Versioning.
 
 ## [Unreleased]
 
-No changes yet.
+- Add parallel English and Simplified Chinese Sphinx documentation.
+- Add Read the Docs configuration and warning-free bilingual documentation CI.
+- Reserve future GitHub Releases for runnable pPreProc software; maintain the
+  PFB/PFC format and API references as versioned online documentation.
 
 ## [1.0.0] - 2026-08-21
 
@@ -14,6 +17,8 @@ No changes yet.
 - Add dependency-free Python and C++ random-access readers.
 - Add validation CLI, synthetic fixture, tests, and release checksum tooling.
 
-This is the first public source release of the supported interface. A Windows
-runtime asset is published only if its independent binary redistribution and
-clean-machine validation gates are satisfied.
+This historical tag established the first public baseline of the supported
+interface. On the current main branch, the interface is published through the
+online documentation and repository source. A Windows software Release is
+published only if its independent redistribution and clean-machine validation
+gates are satisfied.

@@ -1,4 +1,4 @@
-"""Public PFB/PFC v1 reader interface distributed with pPreProc."""
+"""Public PFB/PFC v1 reader interface maintained by the pPreProc project."""
 
 from .reader import PFBFormatError, PFBReader, PFBRecord
 

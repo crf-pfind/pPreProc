@@ -27,10 +27,10 @@ reporting, and unrelated utilities are excluded. Binary assets are released
 only after all project and third-party redistribution terms are satisfied.
 The historical application projects are available in the pFind 3.2.3
 development tree but remain coupled to platform-specific build settings and
-vendor data-access SDKs. They are therefore outside the initial
-reader/specification source-package boundary pending a separate build and
-licensing review; the compiled runtime asset remains distinguished from the
-cross-platform reader and release-tool source stored in this repository.
+vendor data-access SDKs. They are therefore outside the current
+repository-source boundary pending a separate build and licensing review; the
+compiled application Release remains distinguished from the cross-platform
+reader source and online interface documentation maintained here.
 
 ## 2. PFB/PFC storage interface
 

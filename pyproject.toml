@@ -28,7 +28,7 @@ classifiers = [
 [project.urls]
 Homepage = "https://github.com/crf-pfind/pPreProc"
 Repository = "https://github.com/crf-pfind/pPreProc"
-Documentation = "https://github.com/crf-pfind/pPreProc/tree/main/docs"
+Documentation = "https://ppreproc.readthedocs.io/en/latest/"
 Issues = "https://github.com/crf-pfind/pPreProc/issues"
 
 [project.scripts]

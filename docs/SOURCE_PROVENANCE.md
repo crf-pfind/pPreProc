@@ -13,10 +13,12 @@ engineering documents were prepared for this standalone repository.
 The audited pFind 3.2.3 development tree contains the historical pParse2,
 pParse2+, and pXtract application projects in addition to the compiled
 runtime. Those projects remain coupled to platform-specific build settings and
-vendor data-access SDKs, and are not part of the initial cross-platform
-reader/specification source package. The independently runnable Windows asset
-is therefore assembled through the explicit runtime manifest and remains
-subject to its separate redistribution and clean-machine validation gate.
+vendor data-access SDKs, and are not part of the current cross-platform reader
+source. The independently runnable Windows software package is therefore
+assembled through the explicit runtime manifest and remains subject to its
+separate redistribution and clean-machine validation gate. The format and API
+material is maintained through the bilingual online documentation, not as a
+binary Release component.
 
 This finding does not determine ownership or redistribution rights. The
 project owner must confirm the right to distribute the pFind-owned compiled
@@ -27,6 +29,6 @@ must be documented before the Windows ZIP is published.
 
 The public reader source and synthetic tests reproduce and verify the declared
 PFB/PFC byte-level access behavior. Rebuilding the complete Windows
-preprocessing application is outside the initial source-package boundary until
+preprocessing application is outside the current repository-source boundary until
 the historical application projects and their SDK dependencies complete a
 separate build, licensing, and redistribution review.

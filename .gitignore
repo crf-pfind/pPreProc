@@ -6,6 +6,7 @@ __pycache__/
 build/
 dist/
 runtime/
+docs/_build/
 *.zip
 *.sha256
 .DS_Store
