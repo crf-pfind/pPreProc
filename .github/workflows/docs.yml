@@ -12,9 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        language: [en, zh-cn]
-    env:
-      READTHEDOCS_LANGUAGE: ${{ matrix.language }}
+        include:
+          - language: en
+            source: docs/en
+          - language: zh-cn
+            source: docs/zh_CN
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
@@ -27,4 +29,4 @@ jobs:
       - name: Build ${{ matrix.language }} documentation
         run: >-
           sphinx-build -W --keep-going -b html
-          docs build/docs/${{ matrix.language }}
+          ${{ matrix.source }} build/docs/${{ matrix.language }}

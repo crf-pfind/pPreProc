@@ -1,6 +1,10 @@
 [CmdletBinding()]
 param(
     [Parameter(Mandatory = $true)]
+    [ValidatePattern('^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-[0-9A-Za-z.-]+)?$')]
+    [string]$Version,
+
+    [Parameter(Mandatory = $true)]
     [string]$SourceBin,
 
     [switch]$AcknowledgeRedistributionRights,
@@ -10,32 +14,27 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $repository = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
+$distribution = Join-Path $repository 'distribution\windows'
 $source = (Resolve-Path -LiteralPath $SourceBin).Path
 $outputRoot = [System.IO.Path]::GetFullPath($OutputDirectory)
-$versionPath = Join-Path $repository 'VERSION'
-if (-not (Test-Path -LiteralPath $versionPath -PathType Leaf)) {
-    throw "Release VERSION file not found: $versionPath"
+$expectedOutputRoot = [System.IO.Path]::GetFullPath((Join-Path $repository 'build'))
+
+if (-not $outputRoot.StartsWith($expectedOutputRoot, [System.StringComparison]::OrdinalIgnoreCase)) {
+    throw "OutputDirectory must be inside $expectedOutputRoot"
 }
-$releaseVersion = (Get-Content -LiteralPath $versionPath -Raw).Trim()
-if ([string]::IsNullOrWhiteSpace($releaseVersion)) {
-    throw "Release VERSION file is empty: $versionPath"
-}
-$stage = Join-Path $outputRoot "pPreProc-v$releaseVersion-win-x64"
-$manifestPath = Join-Path $repository 'runtime-manifest.json'
-$manifest = Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json
 
 if (-not $AcknowledgeRedistributionRights) {
     throw @'
 Binary packaging is disabled until the project owner has reviewed and
-acknowledged redistribution rights for the pPreProc and third-party runtime
-files. Re-run with -AcknowledgeRedistributionRights only after that review.
+acknowledged redistribution rights for every application and runtime file.
 '@
 }
 
-$releaseLicense = Join-Path $repository 'LICENSE'
-$thirdPartyNotices = Join-Path $repository 'third_party\THIRD_PARTY_NOTICES.txt'
-$thirdPartyLicenses = Join-Path $repository 'third_party\licenses'
-foreach ($requiredEvidence in @($releaseLicense, $thirdPartyNotices, $thirdPartyLicenses)) {
+$applicationLicense = Join-Path $distribution 'APPLICATION_LICENSE.txt'
+$thirdPartyRoot = Join-Path $distribution 'third-party'
+$thirdPartyNotices = Join-Path $thirdPartyRoot 'THIRD_PARTY_NOTICES.txt'
+$thirdPartyLicenses = Join-Path $thirdPartyRoot 'licenses'
+foreach ($requiredEvidence in @($applicationLicense, $thirdPartyNotices, $thirdPartyLicenses)) {
     if (-not (Test-Path -LiteralPath $requiredEvidence)) {
         throw "Release evidence is incomplete: $requiredEvidence"
     }
@@ -44,14 +43,14 @@ if (-not (Get-ChildItem -LiteralPath $thirdPartyLicenses -Recurse -File | Select
     throw "No matching third-party license texts were found in $thirdPartyLicenses"
 }
 
-$expectedStageRoot = [System.IO.Path]::GetFullPath((Join-Path $repository 'build'))
-if (-not $outputRoot.StartsWith($expectedStageRoot, [System.StringComparison]::OrdinalIgnoreCase)) {
-    throw "OutputDirectory must be inside $expectedStageRoot"
-}
+$manifestPath = Join-Path $distribution 'runtime-manifest.json'
+$manifest = Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json
+$stage = Join-Path $outputRoot "pPreProc-$Version-windows-x64"
+
 if (Test-Path -LiteralPath $stage) {
     $resolvedStage = (Resolve-Path -LiteralPath $stage).Path
-    if (-not $resolvedStage.StartsWith($expectedStageRoot, [System.StringComparison]::OrdinalIgnoreCase)) {
-        throw "Refusing to replace stage outside $expectedStageRoot"
+    if (-not $resolvedStage.StartsWith($expectedOutputRoot, [System.StringComparison]::OrdinalIgnoreCase)) {
+        throw "Refusing to replace stage outside $expectedOutputRoot"
     }
     Remove-Item -LiteralPath $resolvedStage -Recurse -Force
 }
@@ -66,8 +65,7 @@ foreach ($entry in $manifest.entries) {
         continue
     }
     $destination = Join-Path (Join-Path $stage 'runtime') $relative
-    $destinationParent = Split-Path -Parent $destination
-    New-Item -ItemType Directory -Path $destinationParent -Force | Out-Null
+    New-Item -ItemType Directory -Path (Split-Path -Parent $destination) -Force | Out-Null
     if ($entry.recursive) {
         Copy-Item -LiteralPath $sourcePath -Destination $destination -Recurse
     } else {
@@ -75,18 +73,17 @@ foreach ($entry in $manifest.entries) {
     }
 }
 
-Copy-Item -LiteralPath (Join-Path $repository 'ppreproc.ps1') -Destination $stage
-Copy-Item -LiteralPath (Join-Path $repository 'ppreproc.cmd') -Destination $stage
-Copy-Item -LiteralPath (Join-Path $repository 'README.md') -Destination $stage
+Copy-Item -LiteralPath (Join-Path $distribution 'ppreproc.ps1') -Destination $stage
+Copy-Item -LiteralPath (Join-Path $distribution 'ppreproc.cmd') -Destination $stage
+Copy-Item -LiteralPath (Join-Path $distribution 'PACKAGE_README.md') -Destination (Join-Path $stage 'README.md')
 Copy-Item -LiteralPath (Join-Path $repository 'CITATION.cff') -Destination $stage
-Copy-Item -LiteralPath $versionPath -Destination $stage
-Copy-Item -LiteralPath $releaseLicense -Destination $stage
+Copy-Item -LiteralPath (Join-Path $repository 'LICENSE') -Destination (Join-Path $stage 'PUBLIC_COMPONENTS_LICENSE.txt')
+Copy-Item -LiteralPath (Join-Path $repository 'NOTICE') -Destination $stage
+Copy-Item -LiteralPath $applicationLicense -Destination $stage
 Copy-Item -LiteralPath $thirdPartyNotices -Destination $stage
-Copy-Item -LiteralPath $thirdPartyLicenses -Destination (Join-Path $stage 'third_party-licenses') -Recurse
-Copy-Item -LiteralPath (Join-Path $repository 'runtime-manifest.json') -Destination $stage
-Copy-Item -LiteralPath (Join-Path $repository 'docs') -Destination $stage -Recurse
-Copy-Item -LiteralPath (Join-Path $repository 'src') -Destination $stage -Recurse
-Copy-Item -LiteralPath (Join-Path $repository 'cpp') -Destination $stage -Recurse
+Copy-Item -LiteralPath $thirdPartyLicenses -Destination (Join-Path $stage 'third-party-licenses') -Recurse
+Copy-Item -LiteralPath $manifestPath -Destination $stage
+Set-Content -LiteralPath (Join-Path $stage 'VERSION') -Value $Version -Encoding ascii
 
 $checksumPath = Join-Path $stage 'SHA256SUMS.txt'
 $stagePrefix = $stage.TrimEnd('\') + '\'
@@ -99,8 +96,10 @@ Get-ChildItem -LiteralPath $stage -Recurse -File |
         "$hash  $relative"
     } | Set-Content -LiteralPath $checksumPath -Encoding ascii
 
-$archive = Join-Path $outputRoot "pPreProc-v$releaseVersion-win-x64.zip"
-if (Test-Path -LiteralPath $archive) { Remove-Item -LiteralPath $archive -Force }
+$archive = Join-Path $outputRoot "pPreProc-$Version-windows-x64.zip"
+if (Test-Path -LiteralPath $archive) {
+    Remove-Item -LiteralPath $archive -Force
+}
 Compress-Archive -LiteralPath $stage -DestinationPath $archive -CompressionLevel Optimal
 Get-FileHash -Algorithm SHA256 -LiteralPath $archive |
     Format-List Algorithm, Hash, Path

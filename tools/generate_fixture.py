@@ -6,7 +6,6 @@ import csv
 import struct
 from pathlib import Path
 
-
 HEADER = struct.Struct("<iiiQi")
 UINT32 = struct.Struct("<I")
 UINT64 = struct.Struct("<Q")
@@ -98,5 +97,5 @@ def generate(destination: Path) -> tuple[Path, Path]:
 
 if __name__ == "__main__":
     root = Path(__file__).resolve().parents[1]
-    generated = generate(root / "tests" / "fixtures")
+    generated = generate(root / "sdk" / "python" / "tests" / "fixtures")
     print("\n".join(str(path) for path in generated))

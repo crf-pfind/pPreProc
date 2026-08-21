@@ -1,24 +1,29 @@
 # Changelog
 
-All notable changes are documented here. Versions follow Semantic Versioning.
+Notable changes to the public repository are recorded here. The application,
+SDKs, and PFB/PFC format use independent versions.
 
 ## [Unreleased]
 
-- Add parallel English and Simplified Chinese Sphinx documentation.
-- Add Read the Docs configuration and warning-free bilingual documentation CI.
-- Reserve future GitHub Releases for runnable pPreProc software; maintain the
-  PFB/PFC format and API references as versioned online documentation.
+### Changed
+
+- Reorganize the repository around distribution, SDK, interface, example, and
+  documentation surfaces.
+- Separate SDK and format version identifiers.
+- Restructure the English and Chinese documentation by task and reference type.
+
+### Added
+
+- Define public repository scope, support channels, component licensing, and a
+  release process for future application binaries.
 
 ## [1.0.0] - 2026-08-21
 
-- Define a separately qualified standalone Windows runtime asset extracted from
-  an authorized pFind 3.2.3 installation.
-- Publish the normative PFB/PFC v1 specification.
-- Add dependency-free Python and C++ random-access readers.
-- Add validation CLI, synthetic fixture, tests, and release checksum tooling.
+### Added
 
-This historical tag established the first public baseline of the supported
-interface. On the current main branch, the interface is published through the
-online documentation and repository source. A Windows software Release is
-published only if its independent redistribution and clean-machine validation
-gates are satisfied.
+- Publish the PFB/PFC v1 specification.
+- Add dependency-free Python and C++17 reference readers.
+- Add a validation CLI, synthetic fixture, tests, and bilingual documentation.
+
+The `v1.0.0` tag establishes the first public SDK and format-interface
+baseline. It is not a standalone Windows application release.

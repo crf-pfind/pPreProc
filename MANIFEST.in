@@ -1,11 +1,11 @@
 include README.md
 include CHANGELOG.md
 include CITATION.cff
-include VERSION
-recursive-include docs *.md *.rst *.py *.txt
-include .readthedocs.yaml
-recursive-include cpp CMakeLists.txt *.hpp *.cpp
-recursive-include tests *.py *.pfb *.pfc
+include LICENSE
+include NOTICE
+include SDK_VERSION
+include FORMAT_VERSION
+recursive-include sdk/python/src *.py
 prune build
 prune runtime
 global-exclude *.py[cod]

@@ -1,0 +1,12 @@
+pPreProc public repository
+Copyright (c) 2026, pPreProc contributors
+
+Unless a subdirectory states otherwise, the source code, interface
+specifications, examples, and documentation in this repository are licensed
+under the BSD 3-Clause License in LICENSE.
+
+The proprietary pPreProc application runtime is not included in the source
+tree. Application binaries, vendor libraries, and other third-party components
+may be distributed separately and remain subject to the terms supplied with
+the applicable release. The BSD 3-Clause License for this repository does not
+replace those terms.

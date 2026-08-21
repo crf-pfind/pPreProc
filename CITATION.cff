@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use pPreProc or the PFB/PFC reader, please cite this software and the associated article."
+message: "If you use pPreProc or its PFB/PFC SDK, please cite this software and the associated article."
 type: software
 title: "pPreProc: mass-spectrometry data preprocessing and indexed PFB/PFC access"
 version: 1.0.0
@@ -21,9 +21,9 @@ authors:
     email: chihao@ict.ac.cn
 abstract: >-
   pPreProc is a unified mass-spectrometry data-preprocessing framework. This
-  repository provides the versioned specification and Python and C++ reference
-  readers for its indexed PFB/PFC representation. The compiled Windows
-  preprocessing runtime is distributed as a separately qualified release asset.
+  public repository provides its distribution entry point, versioned PFB/PFC
+  specification, Python and C++ reference SDKs, examples, and documentation.
+  The proprietary Windows application source is not included.
 keywords:
   - proteomics
   - mass spectrometry

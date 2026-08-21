@@ -1,5 +1,11 @@
 blank_issues_enabled: false
 contact_links:
+  - name: Questions and integration help
+    url: https://github.com/crf-pfind/pPreProc/discussions/categories/q-a
+    about: Ask how to use or integrate pPreProc and PFB/PFC.
+  - name: Feature proposals
+    url: https://github.com/crf-pfind/pPreProc/discussions/categories/ideas
+    about: Discuss a proposal before implementation.
   - name: Security report
     url: https://github.com/crf-pfind/pPreProc/security/policy
     about: Report vulnerabilities privately according to SECURITY.md.

@@ -2,54 +2,58 @@
 pPreProc documentation
 ======================
 
-pPreProc is a mass-spectrometry data-preprocessing framework that separates
-vendor-data extraction, precursor processing, and indexed downstream access.
-The currently validated application workflow targets data-dependent
-acquisition (DDA). The PFB/PFC storage interface is acquisition-scheme
-agnostic, while DIA precursor-processing integration remains ongoing.
+pPreProc is a Windows mass-spectrometry preprocessing application with an
+indexed PFB/PFC interface for fast downstream access. This site documents the
+application workflow, public SDKs, and file-format contract.
 
-This site is the maintained home of the PFB/PFC contract and its public
-interfaces. GitHub Releases have a different purpose: they are reserved for
-runnable, versioned pPreProc software packages after the Windows runtime and
-redistribution checks are complete.
+.. note::
 
-.. important::
-
-   The Python and C++ readers are source-visible reference implementations.
-   The compiled pParse, pParse2+, and pXtract application components are not
-   represented as open-source implementations in this repository.
-
-Getting started
-===============
+   The application is distributed as a proprietary binary. Its source code is
+   not included in the public repository. The Python and C++ PFB/PFC SDKs,
+   examples, and interface specification are public under BSD-3-Clause.
 
 .. toctree::
+   :caption: Getting started
    :maxdepth: 2
 
-   getting_started
-   windows_application
-
-PFB/PFC interface
-=================
+   getting-started/installation
+   getting-started/quickstart
 
 .. toctree::
+   :caption: User guides
    :maxdepth: 2
 
-   pfb_pfc_format
-   python_api
-   cpp_api
-   cli
-
-Project and publication
-=======================
+   user-guide/application
+   user-guide/reading-pfb-pfc
 
 .. toctree::
+   :caption: Concepts
    :maxdepth: 2
 
-   release_scope
+   concepts/architecture
+   concepts/data-fidelity
 
-Useful links
-============
+.. toctree::
+   :caption: Reference
+   :maxdepth: 2
+
+   reference/cli
+   reference/python-api
+   reference/cpp-api
+   reference/pfb-pfc-format
+   reference/compatibility
+
+.. toctree::
+   :caption: Project
+   :maxdepth: 2
+
+   project/releases
+   project/support
+
+Links
+=====
 
 * `GitHub repository <https://github.com/crf-pfind/pPreProc>`_
+* `Application releases <https://github.com/crf-pfind/pPreProc/releases>`_
 * `Issue tracker <https://github.com/crf-pfind/pPreProc/issues>`_
-* `Normative PFB/PFC v1 source document <https://github.com/crf-pfind/pPreProc/blob/main/docs/PFB_PFC_SPECIFICATION_V1.md>`_
+* `Discussions <https://github.com/crf-pfind/pPreProc/discussions>`_
