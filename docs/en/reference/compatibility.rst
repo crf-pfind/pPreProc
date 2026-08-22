@@ -16,7 +16,7 @@ Version matrix
 =======================  ==========  =======  =======  =========================
 Application              Python SDK  C++ SDK  PFB/PFC  Status
 =======================  ==========  =======  =======  =========================
-2.5.2-rc.1               1.0.x       1.0.x    v1       Windows release candidate
+2.5.2                    1.0.x       1.0.x    v1       Stable Windows release
 =======================  ==========  =======  =======  =========================
 
 SDK 1.x reads indexed files satisfying the v1 specification. Readers accept
