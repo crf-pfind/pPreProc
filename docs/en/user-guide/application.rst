@@ -9,17 +9,17 @@ Install the application as described in :doc:`../getting-started/installation`.
 Command entry point
 ===================
 
-The Windows package exposes one launcher:
+The Windows package exposes one launcher. Pass either a RAW data path or a
+YAML configuration file:
 
 .. code-block:: powershell
 
-   .\ppreproc.ps1 -Input D:\data\sample.raw
-   .\ppreproc.ps1 -Config D:\work\pParse2Plus.yaml
-   .\ppreproc.ps1 -Version
+   .\pPreProc.cmd "D:\data\sample.raw"
+   .\pPreProc.cmd "D:\work\pParse2Plus.yaml"
+   .\pPreProc.cmd --help
 
-Use exactly one of ``-Input`` and ``-Config``. The launcher resolves the input
-path, selects the bundled pParse2+ runtime, and runs from the executable
-directory required by the application.
+The launcher forwards the supplied path and options to the bundled pParse2+
+runtime and runs from the executable directory required by the application.
 
 Validated scope
 ===============

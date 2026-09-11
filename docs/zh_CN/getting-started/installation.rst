@@ -19,8 +19,8 @@ GitHub 自动生成的 ``Source code`` 压缩包不是可运行的软件包。
 
 .. code-block:: powershell
 
-   .\ppreproc.ps1 -Version
-   .\ppreproc.ps1 -Input D:\data\sample.raw
+   .\pPreProc.cmd --help
+   .\pPreProc.cmd "D:\data\sample.raw"
 
 应用程序需要 64 位 Windows 和 .NET Framework 4.8。
 

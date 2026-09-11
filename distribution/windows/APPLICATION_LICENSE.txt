@@ -43,9 +43,9 @@ data.
 5. Third-party software
 
 Third-party components are governed by their respective terms. Those terms
-are identified in THIRD_PARTY_NOTICES.txt and the third-party-licenses
-directory. If a third-party term conflicts with this agreement for that
-component, the third-party term controls for that component.
+are identified in THIRD_PARTY_NOTICES.txt. If a third-party term conflicts
+with this agreement for that component, the third-party term controls for
+that component.
 
 6. Research use
 
@@ -55,8 +55,9 @@ which regulatory approval is required.
 
 7. Citation
 
-Publications using pPreProc should cite the software and associated article
-using the citation information supplied with the release.
+Publications using pPreProc should cite the software and associated article.
+Citation information is maintained at
+https://github.com/crf-pfind/pPreProc.
 
 8. Updates and support
 

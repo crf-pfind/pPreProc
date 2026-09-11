@@ -21,8 +21,8 @@ Extract the ZIP, open PowerShell in the extracted directory, and run:
 
 .. code-block:: powershell
 
-   .\ppreproc.ps1 -Version
-   .\ppreproc.ps1 -Input D:\data\sample.raw
+   .\pPreProc.cmd --help
+   .\pPreProc.cmd "D:\data\sample.raw"
 
 The application requires 64-bit Windows and .NET Framework 4.8.
 

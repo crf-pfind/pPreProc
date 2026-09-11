@@ -9,16 +9,16 @@ pParse2+ 进行母离子处理，供下游分析使用。安装步骤见
 命令入口
 ========
 
-Windows 软件包提供统一启动脚本：
+Windows 软件包提供一个启动脚本。运行时传入 RAW 数据路径或 YAML 配置文件：
 
 .. code-block:: powershell
 
-   .\ppreproc.ps1 -Input D:\data\sample.raw
-   .\ppreproc.ps1 -Config D:\work\pParse2Plus.yaml
-   .\ppreproc.ps1 -Version
+   .\pPreProc.cmd "D:\data\sample.raw"
+   .\pPreProc.cmd "D:\work\pParse2Plus.yaml"
+   .\pPreProc.cmd --help
 
-``-Input`` 和 ``-Config`` 必须且只能指定一个。启动脚本会解析输入路径、选择
-软件包内的 pParse2+ 运行组件，并在应用程序所需的工作目录中执行。
+启动脚本会将输入路径和选项传递给软件包内的 pParse2+ 运行组件，并在应用程序
+所需的工作目录中执行。
 
 已验证范围
 ==========

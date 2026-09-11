@@ -5,9 +5,8 @@ This file identifies third-party software distributed with the pPreProc
 Windows application. Copyrights remain with their respective owners. The
 pPreProc Application License does not replace third-party terms.
 
-The exact files, versions exposed by Windows metadata, sizes, and SHA-256
-digests are recorded in RUNTIME_INVENTORY.json in each release archive. A
-machine-readable component list is supplied as third-party-components.json.
+Applicable copyright notices and license texts are consolidated in this file
+in each release archive.
 
 PROPRIETARY VENDOR RUNTIMES
 
@@ -69,8 +68,6 @@ inside the pParse2+ embedded Python runtime:
 * packaging - Apache License 2.0.
 * pandas - BSD 3-Clause.
 * psutil - BSD 3-Clause.
-* PyInstaller bootloader - GNU General Public License Version 2 or later with
-  the special exception permitting distribution of bundled applications.
 * python-dateutil - BSD 3-Clause.
 * pytz - MIT license.
 * PyYAML - MIT license.
@@ -83,7 +80,6 @@ inside the pParse2+ embedded Python runtime:
 * zipp - MIT license.
 * zlib - zlib License.
 
-Canonical texts and component-specific notes are in third-party-licenses.
 Where an upstream distribution contains more detailed notices, those notices
 remain applicable. No third-party name or trademark is used to endorse
 pPreProc.

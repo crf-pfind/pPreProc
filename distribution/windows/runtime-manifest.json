@@ -45,7 +45,6 @@
 
     {"path": "Ionic.Zlib.dll", "required": true, "category": "third-party-runtime"},
     {"path": "log4net.dll", "required": true, "category": "third-party-runtime"},
-    {"path": "log4net.xml", "required": false, "category": "third-party-documentation"},
     {"path": "Mono.Options.dll", "required": true, "category": "third-party-runtime"},
     {"path": "sqlite3.dll", "required": true, "category": "third-party-runtime"},
     {"path": "System.ValueTuple.dll", "required": true, "category": "third-party-runtime"},

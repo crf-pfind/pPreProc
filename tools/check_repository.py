@@ -40,7 +40,7 @@ def _required_files() -> list[str]:
         "README.md",
         "pyproject.toml",
         "distribution/windows/README.md",
-        "distribution/windows/PACKAGE_README.md",
+        "distribution/windows/PACKAGE_README.txt",
         "distribution/windows/runtime-manifest.json",
         "docs/en/conf.py",
         "docs/en/index.rst",

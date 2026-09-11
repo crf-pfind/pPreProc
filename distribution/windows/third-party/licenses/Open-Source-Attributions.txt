@@ -1,8 +1,6 @@
 Open-Source Component Attributions
 
-The following notices accompany the license texts in this directory. Version
-information not encoded in the bundled artifact is recorded as "bundled" in
-third-party-components.json; release file hashes provide exact identity.
+The following notices accompany the consolidated third-party license texts.
 
 Apache log4net
   Copyright 2004-2017 The Apache Software Foundation.
@@ -37,9 +35,6 @@ pandas
 
 psutil
   Copyright (c) 2009, Giampaolo Rodola.
-
-PyInstaller
-  Copyright (c) PyInstaller Development Team.
 
 python-dateutil
   Copyright (c) 2003-2011 Gustavo Niemeyer and contributors.

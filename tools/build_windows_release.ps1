@@ -83,51 +83,31 @@ foreach ($entry in $manifest.entries) {
     }
 }
 
-Copy-Item -LiteralPath (Join-Path $distribution 'ppreproc.ps1') -Destination $stage
-Copy-Item -LiteralPath (Join-Path $distribution 'ppreproc.cmd') -Destination $stage
-Copy-Item -LiteralPath (Join-Path $distribution 'PACKAGE_README.md') -Destination (Join-Path $stage 'README.md')
-$citation = Get-Content -LiteralPath (Join-Path $repository 'CITATION.cff') -Raw
-$citation = $citation -replace '(?m)^version:.*$', "version: $Version"
-$citation = $citation -replace '(?m)^date-released:.*$', "date-released: $([DateTime]::UtcNow.ToString('yyyy-MM-dd'))"
-$citation = $citation -replace '(?m)^license:.*\r?\n', ''
-Set-Content -LiteralPath (Join-Path $stage 'CITATION.cff') -Value $citation -Encoding utf8
-Copy-Item -LiteralPath (Join-Path $repository 'LICENSE') -Destination (Join-Path $stage 'PUBLIC_COMPONENTS_LICENSE.txt')
-Copy-Item -LiteralPath $applicationLicense -Destination $stage
-Copy-Item -LiteralPath $thirdPartyNotices -Destination $stage
-Copy-Item -LiteralPath $thirdPartyLicenses -Destination (Join-Path $stage 'third-party-licenses') -Recurse
-Copy-Item -LiteralPath $manifestPath -Destination $stage
-Copy-Item -LiteralPath $runtimeProvenance -Destination $stage
-Copy-Item -LiteralPath $thirdPartyComponents -Destination $stage
-Set-Content -LiteralPath (Join-Path $stage 'VERSION') -Value $Version -Encoding ascii
+Copy-Item -LiteralPath (Join-Path $distribution 'ppreproc.cmd') -Destination (Join-Path $stage 'pPreProc.cmd')
+Copy-Item -LiteralPath (Join-Path $distribution 'PACKAGE_README.txt') -Destination (Join-Path $stage 'README.txt')
+Copy-Item -LiteralPath $applicationLicense -Destination (Join-Path $stage 'LICENSE.txt')
 
-$inventory = foreach ($file in Get-ChildItem -LiteralPath (Join-Path $stage 'runtime') -Recurse -File | Sort-Object FullName) {
-    $relative = $file.FullName.Substring((Join-Path $stage 'runtime').Length + 1).Replace('\', '/')
-    [ordered]@{
-        path = $relative
-        size_bytes = $file.Length
-        sha256 = (Get-FileHash -Algorithm SHA256 -LiteralPath $file.FullName).Hash.ToLowerInvariant()
-        file_version = $file.VersionInfo.FileVersion
-        product_version = $file.VersionInfo.ProductVersion
+$noticeOutput = Join-Path $stage 'THIRD_PARTY_NOTICES.txt'
+$noticeParts = @(
+    $thirdPartyNotices,
+    (Join-Path $thirdPartyLicenses 'Open-Source-Attributions.txt'),
+    (Join-Path $thirdPartyLicenses 'Apache-2.0.txt'),
+    (Join-Path $thirdPartyLicenses 'BSD-3-Clause.txt'),
+    (Join-Path $thirdPartyLicenses 'Microsoft-Public-License.txt'),
+    (Join-Path $thirdPartyLicenses 'MIT.txt'),
+    (Join-Path $thirdPartyLicenses 'PSF-2.0.txt'),
+    (Join-Path $thirdPartyLicenses 'SQLite-Public-Domain.txt'),
+    (Join-Path $thirdPartyLicenses 'Zlib.txt')
+)
+$noticeSections = foreach ($part in $noticeParts) {
+    if (-not (Test-Path -LiteralPath $part -PathType Leaf)) {
+        throw "Required notice file is missing: $part"
     }
+    $label = [System.IO.Path]::GetFileNameWithoutExtension($part)
+    "`r`n===== $label =====`r`n`r`n$((Get-Content -LiteralPath $part -Raw).Trim())"
 }
-[ordered]@{
-    schema_version = 1
-    application_version = $Version
-    generated_utc = [DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ssZ')
-    repository_commit = (& git -C $repository rev-parse HEAD 2>$null)
-    files = @($inventory)
-} | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $stage 'RUNTIME_INVENTORY.json') -Encoding utf8
-
-$checksumPath = Join-Path $stage 'SHA256SUMS.txt'
-$stagePrefix = $stage.TrimEnd('\') + '\'
-Get-ChildItem -LiteralPath $stage -Recurse -File |
-    Where-Object { $_.FullName -ne $checksumPath } |
-    Sort-Object FullName |
-    ForEach-Object {
-        $hash = (Get-FileHash -Algorithm SHA256 -LiteralPath $_.FullName).Hash.ToLowerInvariant()
-        $relative = $_.FullName.Substring($stagePrefix.Length).Replace('\', '/')
-        "$hash  $relative"
-    } | Set-Content -LiteralPath $checksumPath -Encoding ascii
+($noticeSections -join "`r`n") + "`r`n" |
+    Set-Content -LiteralPath $noticeOutput -Encoding utf8
 
 $archive = Join-Path $outputRoot "pPreProc-$Version-windows-x64.zip"
 $archiveChecksum = "$archive.sha256"
