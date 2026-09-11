@@ -12,9 +12,10 @@ For a Windows application release `X.Y.Z`, publish:
 - `pPreProc-X.Y.Z-windows-x64.zip.sha256`;
 - user-facing release notes.
 
-The archive must contain one launcher, the required runtime under `bin/`, a short readme,
-the application license, and a consolidated third-party notice file. Internal
-manifests and file inventories are not user-facing release assets.
+The archive must contain one launcher, the required runtime under `bin/`, a
+short readme, and one license file containing the application terms and
+required third-party notices. Internal manifests and file inventories are not
+user-facing release assets.
 
 ## Release gate
 

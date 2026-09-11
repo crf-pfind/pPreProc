@@ -85,10 +85,10 @@ foreach ($entry in $manifest.entries) {
 
 Copy-Item -LiteralPath (Join-Path $distribution 'ppreproc.cmd') -Destination (Join-Path $stage 'pPreProc.cmd')
 Copy-Item -LiteralPath (Join-Path $distribution 'PACKAGE_README.txt') -Destination (Join-Path $stage 'README.txt')
-Copy-Item -LiteralPath $applicationLicense -Destination (Join-Path $stage 'LICENSE.txt')
 
-$noticeOutput = Join-Path $stage 'THIRD_PARTY_NOTICES.txt'
-$noticeParts = @(
+$licenseOutput = Join-Path $stage 'LICENSE.txt'
+$licenseParts = @(
+    $applicationLicense,
     $thirdPartyNotices,
     (Join-Path $thirdPartyLicenses 'Open-Source-Attributions.txt'),
     (Join-Path $thirdPartyLicenses 'Apache-2.0.txt'),
@@ -99,15 +99,15 @@ $noticeParts = @(
     (Join-Path $thirdPartyLicenses 'SQLite-Public-Domain.txt'),
     (Join-Path $thirdPartyLicenses 'Zlib.txt')
 )
-$noticeSections = foreach ($part in $noticeParts) {
+$licenseSections = foreach ($part in $licenseParts) {
     if (-not (Test-Path -LiteralPath $part -PathType Leaf)) {
         throw "Required notice file is missing: $part"
     }
     $label = [System.IO.Path]::GetFileNameWithoutExtension($part)
     "`r`n===== $label =====`r`n`r`n$((Get-Content -LiteralPath $part -Raw).Trim())"
 }
-($noticeSections -join "`r`n") + "`r`n" |
-    Set-Content -LiteralPath $noticeOutput -Encoding utf8
+($licenseSections -join "`r`n") + "`r`n" |
+    Set-Content -LiteralPath $licenseOutput -Encoding utf8
 
 $archive = Join-Path $outputRoot "pPreProc-$Version-windows-x64.zip"
 $archiveChecksum = "$archive.sha256"

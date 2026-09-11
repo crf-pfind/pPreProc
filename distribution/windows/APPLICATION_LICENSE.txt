@@ -43,9 +43,9 @@ data.
 5. Third-party software
 
 Third-party components are governed by their respective terms. Those terms
-are identified in THIRD_PARTY_NOTICES.txt. If a third-party term conflicts
-with this agreement for that component, the third-party term controls for
-that component.
+are included below in the distributed LICENSE.txt. If a third-party term
+conflicts with this agreement for that component, the third-party term
+controls for that component.
 
 6. Research use
 
