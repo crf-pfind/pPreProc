@@ -24,6 +24,9 @@ Extract the ZIP, open PowerShell in the extracted directory, and run:
    .\pPreProc.cmd --help
    .\pPreProc.cmd "D:\data\sample.raw"
 
+The bundled application files are stored under ``bin`` and do not require a
+separate installation step.
+
 The application requires 64-bit Windows and .NET Framework 4.8.
 
 Python SDK

@@ -15,5 +15,7 @@ For command-line options:
 Documentation: https://ppreproc.readthedocs.io/
 Issues: https://github.com/crf-pfind/pPreProc/issues
 
+The bin directory contains the files required by the application.
+
 LICENSE.txt contains the application terms. THIRD_PARTY_NOTICES.txt contains
 the notices and license texts for bundled third-party components.

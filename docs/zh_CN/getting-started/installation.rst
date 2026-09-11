@@ -22,6 +22,8 @@ GitHub 自动生成的 ``Source code`` 压缩包不是可运行的软件包。
    .\pPreProc.cmd --help
    .\pPreProc.cmd "D:\data\sample.raw"
 
+软件运行所需文件位于 ``bin`` 目录，无需单独安装。
+
 应用程序需要 64 位 Windows 和 .NET Framework 4.8。
 
 Python SDK

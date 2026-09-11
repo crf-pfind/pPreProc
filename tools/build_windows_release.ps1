@@ -63,7 +63,7 @@ if (Test-Path -LiteralPath $stage) {
     Remove-Item -LiteralPath $resolvedStage -Recurse -Force
 }
 
-New-Item -ItemType Directory -Path (Join-Path $stage 'runtime') -Force | Out-Null
+New-Item -ItemType Directory -Path (Join-Path $stage 'bin') -Force | Out-Null
 foreach ($entry in $manifest.entries) {
     $relative = $entry.path -replace '/', '\'
     $sourceRoot = if ($entry.source_root -eq 'microsoft_vc') { $vcRuntime } else { $source }
@@ -74,7 +74,7 @@ foreach ($entry in $manifest.entries) {
         Write-Warning "Optional runtime entry missing: $relative"
         continue
     }
-    $destination = Join-Path (Join-Path $stage 'runtime') $relative
+    $destination = Join-Path (Join-Path $stage 'bin') $relative
     New-Item -ItemType Directory -Path (Split-Path -Parent $destination) -Force | Out-Null
     if ($entry.recursive) {
         Copy-Item -LiteralPath $sourcePath -Destination $destination -Recurse
